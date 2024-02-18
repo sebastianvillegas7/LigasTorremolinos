@@ -1,55 +1,7 @@
 {% extends "base.html" %}
-{% comment %} {% load static %} {% endcomment %}
+
 {% block titulo %} Pruebas bd {% endblock %}
-{% block cuerpo %}
-    <h1>Tabla de Deportes</h1>
-    <a href="{% url 'appLigas:crear_deporte' %}">Crear Deporte</a>
-    <table style="border-collapse: collapse; width: 80%;">
-        <thead class="se">
-            <tr style="border: 1px solid black; background-color: #f2f2f2;">
-                <th style="text-align: center; border: 1px solid black">ID Deporte</th>
-                <th style="text-align: center; border: 1px solid black">Nombre Deporte</th>
-                <th style="text-align: center; border: 1px solid black">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for deporte in object_list %}
-            <tr style="border: 1px solid black">
-                <td style="text-align: center; border: 1px solid black">{{ deporte.id_deporte }}</td>
-                <td style="text-align: center; border: 1px solid black">{{ deporte.nombre }}</td>
-                <td style="text-align: center; border: 1px solid black">
-                    <a href="{% url 'appLigas:editar_deporte' pk=deporte.pk %}">Editar</a>
-                    <a href="{% url 'appLigas:eliminar_deporte' pk=deporte.pk %}">Borrar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <h1>Tabla de Instalaciones</h1>
-    <table style="border-collapse: collapse; width: 80%;">
-        <thead class="se">
-            <tr style="border: 1px solid black; background-color: #f2f2f2;">
-                <th style="text-align: center; border: 1px solid black">ID Instalacion</th>
-                <th style="text-align: center; border: 1px solid black">Nombre Instalacion</th>
-                <th style="text-align: center; border: 1px solid black">Direccion Instalacion</th>
-                <th style="text-align: center; border: 1px solid black">Iluminacion</th>
-                <th style="text-align: center; border: 1px solid black">Cubierta</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for instalacion in instalaciones %}
-            <tr style="border: 1px solid black">
-                <td style="text-align: center; border: 1px solid black">{{ instalacion.id_instalacion }}</td>
-                <td style="text-align: center; border: 1px solid black">{{ instalacion.nombre }}</td>
-                <td style="text-align: center; border: 1px solid black">{{ instalacion.direccion }}</td>
-                <td style="text-align: center; border: 1px solid black">{{ instalacion.iluminacion }}</td>
-                <td style="text-align: center; border: 1px solid black">{{ instalacion.cubierta }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>    
-
+{% block contenido %}    
     <h1>Tabla de Equipos</h1>
     <table style="border-collapse: collapse; width: 80%;">
         <thead class="se">

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titulo %} Pruebas bd {% endblock %}
+{% block contenido %}
+    <h1>Tabla de Deportes</h1>
+    <a href="{% url 'appLigas:crear_deporte' %}">Crear Deporte</a>
+    <table style="border-collapse: collapse; width: 80%;">
+        <thead class="se">
+            <tr style="border: 1px solid black; background-color: #f2f2f2;">
+                <th style="text-align: center; border: 1px solid black">ID Deporte</th>
+                <th style="text-align: center; border: 1px solid black">Nombre Deporte</th>
+                <th style="text-align: center; border: 1px solid black">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for deporte in object_list %}
+            <tr style="border: 1px solid black">
+                <td style="text-align: center; border: 1px solid black">{{ deporte.id_deporte }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ deporte.nombre }}</td>
+                <td style="text-align: center; border: 1px solid black">
+                    <a href="{% url 'appLigas:editar_deporte' pk=deporte.id_deporte %}">[Editar]</a>
+                    <a href="{% url 'appLigas:eliminar_deporte' pk=deporte.id_deporte %}">[Borrar]</a>
+                </td>
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,6 +1,7 @@
-{% block title %}Eliminar Deporte{% endblock %}
+{% extends "base.html" %}
+{% block titulo %}Eliminar Deporte{% endblock %}
 
-{% block content %}
+{% block contenido %}
     <h1>Eliminar Deporte</h1>
     <p>¿Estás seguro de que quieres eliminar el deporte "{{ deporte.nombre }}" con ID {{ deporte.id_deporte }}?</p>
     <form method="post">

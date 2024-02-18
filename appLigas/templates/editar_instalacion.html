@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block titulo %}Editar Deporte{% endblock %}
+{% block titulo %}Editar Instalación{% endblock %}
 
 {% block contenido %}
-    <h1>Editar Deporte</h1>
+    <h1>Editar Instalación</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
