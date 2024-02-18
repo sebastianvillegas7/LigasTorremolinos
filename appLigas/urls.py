@@ -3,9 +3,8 @@ from . import views
 
 app_name="appLigas"
 urlpatterns = [
-    path('', views.ListadoDeportesView.as_view(), name="listado"),
-    path('listado/', views.ListadoDeportesView.as_view(), name="listado"),
-    # path('detalles/<int:pk>',views.DetalleView.as_view(), name="nombre"),
-    # path('update/<int:pk>',views.UpdateView.as_view(), name="update"),
-    # path('delete/<int:pk>',views.DeleteView.as_view(), name="delete"),
+    path('', views.ListadoView.as_view(), name="listado"),    
+    path('crear_deporte/', views.CrearDeporteView.as_view(), name="crear_deporte"),
+    path('editar_deporte/<int:pk>', views.EditarDeporteView.as_view(), name="editar_deporte"),
+    path('eliminar_deporte/<int:pk>', views.EliminarDeporteView.as_view(), name="eliminar_deporte"),
 ]
