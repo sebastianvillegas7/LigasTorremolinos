@@ -2,6 +2,73 @@
 <!DOCTYPE html>
 <html data-bs-theme="dark">
 <head>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <title>{% block titulo %}{% endblock %}</title>
+    <!-- Enlace al archivo CSS personalizado -->
+    <!-- Agrega la referencia al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">   
+</head>
+<body class="bg-dark text-light" style="padding-top: 38px;">
+    <!-- Barra de navegación fija en la parte superior -->    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="{% url 'appLigas:home' %}" style="font-family: 'Protest Riot', sans-serif; font-weight: 400; font-style: normal;">Ligas Torremolinos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'appLigas:listado_deportes' %}">Deportes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'appLigas:listado_instalaciones' %}">Instalaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'appLigas:listado_equipos' %}">Equipos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'appLigas:listado_jugadores' %}">Jugadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'appLigas:listado_partidos' %}">Partidos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Contenido específico de cada página -->
+        {% block contenido %}
+        {% endblock %}
+    </div>  
+
+    <!-- Pie de página -->
+    <footer class="bg-secondary text-light text-center py-2">
+        <p style="font-size: 10px; margin-bottom: 0;">© 2024 Ligas Torremolinos - Sebastián Villegas. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Agrega los scripts de Bootstrap y jQuery al final del cuerpo del documento para mejorar el rendimiento -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Obtiene la URL actual
+            var url = window.location.pathname;
+            // Agrega la clase 'active' al enlace correspondiente en función de la URL
+            $('.navbar-nav .nav-item a[href="' + url + '"]').addClass('active');
+        });
+    </script>
+</body>
+</html>
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+<head>
     <title>{% block titulo %}{% endblock %}</title>
     <!-- Enlace al archivo CSS personalizado -->
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
@@ -55,4 +122,4 @@
     </script>
 </body>
 </html>
-
+ {% endcomment %}

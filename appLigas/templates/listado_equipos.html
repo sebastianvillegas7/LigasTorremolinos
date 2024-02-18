@@ -22,9 +22,9 @@
                 <tr>
                     <th scope="col" style="width: 3%; text-align: center;"><i>ID</i></th>
                     <th scope="col"><i>Nombre</i></th>
-                    <th scope="col"><i>ID Deporte</i></th>
-                    <th scope="col"><i>Equipación Principal</i></th>
-                    <th scope="col"><i>Equipación Suplente</i></th>
+                    <th scope="col"><i>Deporte</i></th>
+                    {% comment %} <th scope="col"><i>Equipación Principal</i></th>                     {% endcomment %}
+                    {% comment %} <th scope="col"><i>Equipación Suplente</i></th> {% endcomment %}
                     <th scope="col"><i>Contacto</i></th>
                     <th scope="col"><i>Teléfono</i></th>
                     <th scope="col"><i>Email</i></th>
@@ -36,9 +36,19 @@
                 <tr>
                     <td scope="row" style="text-align: center;">{{ equipo.id_equipo }}</td>
                     <td scope="row">{{ equipo.nombre }}</td>
-                    <td scope="row">{{ equipo.id_deporte_id }}</td>
-                    <td scope="row">{{ equipo.equipacion_principal }}</td>
-                    <td scope="row">{{ equipo.equipacion_suplente }}</td>
+                    <td scope="row">
+                        {% if equipo.id_deporte_id == 1 %}
+                            Fútbol
+                        {% elif equipo.id_deporte_id == 2 %}
+                            Baloncesto
+                        {% elif equipo.id_deporte_id == 3 %}
+                            Tenis
+                        {% else %}
+                            Otros
+                        {% endif %}
+                    </td>
+                    {% comment %} <td scope="row">{{ equipo.equipacion_principal }}</td> {% endcomment %}
+                    {% comment %} <td scope="row">{{ equipo.equipacion_suplente }}</td> {% endcomment %}
                     <td scope="row">{{ equipo.contacto }}</td>
                     <td scope="row">{{ equipo.telefono }}</td>
                     <td scope="row">{{ equipo.email }}</td>

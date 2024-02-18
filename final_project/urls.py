@@ -20,7 +20,7 @@ from appLigas import views
 from django.shortcuts import redirect
 
 urlpatterns = [
-    path('', lambda request: redirect('appLigas:listado')),  # Redirigir a 'ligas/listado'
+    path('', include("appLigas.urls", namespace="appLigas")),
+    path("ligas/", include("appLigas.urls", namespace="appLigas")),
     path('admin/', admin.site.urls),    
-    path("ligas/", include("appLigas.urls", namespace="appLigas"))
 ]

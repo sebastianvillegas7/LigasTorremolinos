@@ -1,6 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
+{% block titulo %} Ligas Torremolinos {% endblock %}
 
-{% block titulo %} Pruebas bd {% endblock %}
 {% block contenido %}        
-    
+    <div id="home" class="background-image">
+        <!-- Contenido de tu página aquí -->
+    </div>
+
+    <style>
+        .background-image {
+            background-image: url('{% static "img/fondogente.jpg" %}');
+            background-size: cover;
+            background-position: center;            
+            min-height: 83vh;
+            margin-bottom: 7px;
+            opacity: 0.4;
+        }
+    </style>
 {% endblock %}
