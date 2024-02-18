@@ -15,5 +15,10 @@ urlpatterns = [
     path('crear_instalacion/', views.CrearInstalacionView.as_view(), name="crear_instalacion"),
     path('editar_instalacion/<int:pk>', views.EditarInstalacionView.as_view(), name="editar_instalacion"),
     path('eliminar_instalacion/<int:pk>', views.EliminarInstalacionView.as_view(), name="eliminar_instalacion"),
+    # EQUIPOS
+    path('listado_equipos/', views.ListadoEquiposView.as_view(), name="listado_equipos"),
+    path('crear_equipo/', views.CrearEquipoView.as_view(), name="crear_equipo"),
+    path('editar_equipo/<int:pk>', views.EditarEquipoView.as_view(), name="editar_equipo"),
+    path('eliminar_equipo/<int:pk>', views.EliminarEquipoView.as_view(), name="eliminar_equipo"),
     
 ]

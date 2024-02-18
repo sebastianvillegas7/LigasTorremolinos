@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 from . import models
 from . import forms 
-from .forms import DeporteForm, InstalacionForm
+from .forms import DeporteForm, EquipoForm, InstalacionForm
 
 class ListadoView(generic.ListView): 
     model = models.Deporte
@@ -69,3 +69,32 @@ class EditarInstalacionView(generic.UpdateView):
     form_class = InstalacionForm
     template_name = "editar_instalacion.html"
     success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    
+    
+    # TODO: EQUIPOS
+class ListadoEquiposView(generic.ListView): 
+    model = models.Equipo
+    template_name = "listado_equipos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)    
+        return context    
+    
+class CrearEquipoView(generic.CreateView):  # Asegúrate de usar CreateView para crear una nueva instancia del modelo Deporte
+    model = models.Equipo
+    form_class = EquipoForm  # Especifica el formulario que utilizarás
+    template_name = "crear_equipo.html"  # Define el nombre del template
+    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+
+class EliminarEquipoView(generic.DeleteView):
+    model = models.Equipo
+    template_name = "eliminar_equipo.html"
+    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+
+class EditarEquipoView(generic.UpdateView):
+    model = models.Equipo
+    form_class = EquipoForm
+    template_name = "editar_equipo.html"
+    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+    
+    # TODO: JUGADORES
