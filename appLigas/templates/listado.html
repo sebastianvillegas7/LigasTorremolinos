@@ -43,38 +43,68 @@
             {% endfor %}
         </tbody>
     </table>    
-{% endblock %}
 
-
-
-
-
-
-
-
-
-
-{% comment %} {% extends "base.html" %}
-{% load static %}
-{% block titulo %} Pruebas bd {% endblock %}
-{% block cuerpo %}
-    <h1>Tabla de Deportes</h1> 
+    <h1>Tabla de Equipos</h1>
     <table style="border-collapse: collapse; width: 80%;">
         <thead class="se">
             <tr style="border: 1px solid black; background-color: #f2f2f2;">
-                <th style="text-align: center; border: 1px solid black">ID</th>
-                <th style="text-align: center; border: 1px solid black">Nombre</th>                
+                <th style="text-align: center; border: 1px solid black">ID Equipo</th>
+                <th style="text-align: center; border: 1px solid black">Nombre Equipo</th>
+                <th style="text-align: center; border: 1px solid black">ID Deporte</th>
+                <th style="text-align: center; border: 1px solid black">Equipación Principal</th>
+                <th style="text-align: center; border: 1px solid black">Equipación Suplente</th>
+                <th style="text-align: center; border: 1px solid black">Contacto</th>
+                <th style="text-align: center; border: 1px solid black">Teléfono</th>
+                <th style="text-align: center; border: 1px solid black">Email</th>
             </tr>
         </thead>
         <tbody>
-            {% for deporte in object_list %}
+            {% for equipo in equipos %}
             <tr style="border: 1px solid black">
-                <td style="text-align: center; border: 1px solid black">{{ deporte.id_deporte }}</td>
-                <td style="text-align: center; border: 1px solid black">{{ deporte.nombre }}</td>              
-               
-            </tr>               
+                <td style="text-align: center; border: 1px solid black">{{ equipo.id_equipo }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ equipo.nombre }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ equipo.id_deporte_id }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ equipo.equipacion_principal }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ equipo.equipacion_suplente }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ equipo.contacto }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ equipo.telefono }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ equipo.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+
+    <h1>Tabla de Jugadores</h1>
+    <table style="border-collapse: collapse; width: 80%;">
+        <thead class="se">
+            <tr style="border: 1px solid black; background-color: #f2f2f2;">
+                <th style="text-align: center; border: 1px solid black">ID Jugador</th>
+                <th style="text-align: center; border: 1px solid black">Nombre</th>
+                <th style="text-align: center; border: 1px solid black">Apellido 1</th>
+                <th style="text-align: center; border: 1px solid black">Apellido 2</th>
+                <th style="text-align: center; border: 1px solid black">ID Equipo</th>
+                <th style="text-align: center; border: 1px solid black">Dorsal</th>
+                <th style="text-align: center; border: 1px solid black">Fecha de nacimiento</th>
+                <th style="text-align: center; border: 1px solid black">Altura</th>
+                <th style="text-align: center; border: 1px solid black">Peso</th>
+                <th style="text-align: center; border: 1px solid black">Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jugador in jugadores %}
+            <tr style="border: 1px solid black">
+                <td style="text-align: center; border: 1px solid black">{{ jugador.id_jugador }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.nombre }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.apellido1 }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.apellido2 }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.id_equipo.id_equipo }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.dorsal }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.fecha_nacimiento }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.altura }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.peso }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ jugador.telefono }}</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>    
 {% endblock %}
- {% endcomment %}

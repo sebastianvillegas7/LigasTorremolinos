@@ -9,9 +9,6 @@ class ListadoDeportesView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['instalaciones'] = models.Instalacion.objects.all()
+        context['equipos'] = models.Equipo.objects.all()
+        context['jugadores'] = models.Jugador.objects.all()
         return context
-
-    
-# class ListadoInstalacionView(generic.ListView): 
-#     model = models.Instalacion
-#     template_name = "listado_instalaciones.html"
