@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Eliminar Deporte</h1>
-    <p>¿Estás seguro de que quieres eliminar este deporte?</p>
+    <p>¿Estás seguro de que quieres eliminar el deporte "{{ deporte.nombre }}" con ID {{ deporte.id_deporte }}?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Eliminar</button>
