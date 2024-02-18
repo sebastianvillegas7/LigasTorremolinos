@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %} Ejemplo de la BBDD {% endblock %}
+{% block cuerpo %}
+    <h1>Tabla de Personas</h1> <!-- ejercicio 3 -->
+    <table style="border-collapse: collapse; width: 80%;">
+        <thead class="se">
+            <tr style="border: 1px solid black; background-color: #f2f2f2;">
+                <th style="text-align: center; border: 1px solid black">ID</th>
+                <th style="text-align: center; border: 1px solid black">Nombre</th>                
+            </tr>
+        </thead>
+        <tbody>
+            {% for deporte in object_list %}
+            <tr style="border: 1px solid black">
+                <td style="text-align: center; border: 1px solid black">{{ deporte.id_deporte }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ deporte.nombre }}</td>              
+               
+            </tr>               
+            {% endfor %}
+        </tbody>
+    </table>    
+{% endblock %}
+
+
