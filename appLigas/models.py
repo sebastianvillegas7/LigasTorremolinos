@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator
 
 # Create your models here.
 # Modelo Deporte
@@ -64,3 +65,22 @@ class Jugador(models.Model):
 
     def __str__(self):
         return f"{self.id_jugador} {self.nombre} {self.apellido1} {self.apellido2} {self.id_equipo} {self.dorsal} {self.fecha_nacimiento} {self.altura} {self.peso} {self.telefono}"
+    
+# Modelo Partido
+class Partido(models.Model):
+    id_partido = models.IntegerField(primary_key=True)
+    id_deporte = models.ForeignKey('Deporte', on_delete=models.RESTRICT, db_column='id_deporte')
+    fecha_hora = models.DateTimeField()
+    id_instalacion = models.ForeignKey('Instalacion', on_delete=models.RESTRICT, blank=True, null=True, db_column='id_instalacion')
+    id_equipo_local = models.ForeignKey('Equipo', related_name='partidos_local', on_delete=models.RESTRICT, db_column='id_equipo_local')
+    id_equipo_visitante = models.ForeignKey('Equipo', related_name='partidos_visitante', on_delete=models.RESTRICT, db_column='id_equipo_visitante')
+    puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    puntos_visitante = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    observaciones = models.CharField(max_length=200, blank=True)
+
+    class Meta:
+        verbose_name_plural = "Partidos"
+        db_table = "partidos"
+
+    def __str__(self):
+        return f"{self.id_partido} {self.id_deporte} {self.fecha_hora} {self.id_instalacion} {self.id_equipo_local} vs {self.id_equipo_visitante} - {self.puntos_local} {self.puntos_visitante} {self.observaciones}"

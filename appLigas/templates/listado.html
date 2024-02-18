@@ -107,4 +107,36 @@
             {% endfor %}
         </tbody>
     </table>    
+
+    <h1>Tabla de Partidos</h1>
+    <table style="border-collapse: collapse; width: 80%;">
+        <thead class="se">
+            <tr style="border: 1px solid black; background-color: #f2f2f2;">
+                <th style="text-align: center; border: 1px solid black">ID Partido</th>
+                <th style="text-align: center; border: 1px solid black">Deporte</th>
+                <th style="text-align: center; border: 1px solid black">Fecha y Hora</th>
+                <th style="text-align: center; border: 1px solid black">Instalación</th>
+                <th style="text-align: center; border: 1px solid black">Equipo Local</th>
+                <th style="text-align: center; border: 1px solid black">Equipo Visitante</th>
+                <th style="text-align: center; border: 1px solid black">Puntos Local</th>
+                <th style="text-align: center; border: 1px solid black">Puntos Visitante</th>
+                <th style="text-align: center; border: 1px solid black">Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for partido in partidos %}
+            <tr style="border: 1px solid black">
+                <td style="text-align: center; border: 1px solid black">{{ partido.id_partido }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.id_deporte.nombre }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.fecha_hora }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.id_instalacion.nombre }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.id_equipo_local.nombre }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.id_equipo_visitante.nombre }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.puntos_local }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.puntos_visitante }}</td>
+                <td style="text-align: center; border: 1px solid black">{{ partido.observaciones }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

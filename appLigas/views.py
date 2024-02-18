@@ -11,4 +11,5 @@ class ListadoDeportesView(generic.ListView):
         context['instalaciones'] = models.Instalacion.objects.all()
         context['equipos'] = models.Equipo.objects.all()
         context['jugadores'] = models.Jugador.objects.all()
+        context['partidos'] = models.Partido.objects.all()
         return context
