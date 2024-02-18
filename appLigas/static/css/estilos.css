@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'MADE Evolve Sans Bold';
+    src: url('/static/fonts/MADE Evolve Sans Bold.otf') format('otf'),             
+}
+
+/* Estilo para el enlace seleccionado */
+.navbar-nav .nav-item.active .nav-link {
+    background-color: #0069d9; /* Fondo ligeramente más oscuro */
+    color: #fff;
+}
+
