@@ -1,34 +1,87 @@
 {% extends "base.html" %}
 
 {% block titulo %} Pruebas bd {% endblock %}
+
 {% block contenido %}
-<h1>Tabla de Instalaciones</h1>
-<a href="{% url 'appLigas:crear_instalacion' %}">Crear Instalacion</a>
-<table style="border-collapse: collapse; width: 80%;">
-    <thead class="se">
-        <tr style="border: 1px solid black; background-color: #f2f2f2;">
-            <th style="text-align: center; border: 1px solid black">ID Instalacion</th>
-            <th style="text-align: center; border: 1px solid black">Nombre Instalacion</th>
-            <th style="text-align: center; border: 1px solid black">Direccion Instalacion</th>
-            <th style="text-align: center; border: 1px solid black">Iluminacion</th>
-            <th style="text-align: center; border: 1px solid black">Cubierta</th>
-            <th style="text-align: center; border: 1px solid black">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for instalacion in object_list %}
-        <tr style="border: 1px solid black">
-            <td style="text-align: center; border: 1px solid black">{{ instalacion.id_instalacion }}</td>
-            <td style="text-align: center; border: 1px solid black">{{ instalacion.nombre }}</td>
-            <td style="text-align: center; border: 1px solid black">{{ instalacion.direccion }}</td>
-            <td style="text-align: center; border: 1px solid black">{{ instalacion.iluminacion }}</td>
-            <td style="text-align: center; border: 1px solid black">{{ instalacion.cubierta }}</td>
-            <td style="text-align: center; border: 1px solid black">
-                <a href="{% url 'appLigas:editar_instalacion' pk=instalacion.id_instalacion %}">[Editar]</a>
-                <a href="{% url 'appLigas:eliminar_instalacion' pk=instalacion.id_instalacion %}">[Borrar]</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>    
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid d-flex justify-content-between">
+        <span class="navbar-brand mb-0 h1">Tabla de Instalaciones</span>
+        <a class="btn btn-secondary" href="{% url 'appLigas:crear_instalacion' %}">Crear Instalación</a>
+    </div>
+</nav>
+
+<div class="container bg-dark text-light">    
+    <div class="table-responsive">
+        <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
+            <thead class="table-active">
+                <tr>
+                    <th scope="col" style="width: 3%; text-align: center;">ID</th>
+                    <th scope="col">Nombre Instalación</th>
+                    <th scope="col">Dirección Instalación</th>
+                    <th scope="col" style="text-align: center;">Iluminación</th>
+                    <th scope="col" style="text-align: center;">Cubierta</th>
+                    <th scope="col" style="text-align: center;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider" style="font-size: 0.9rem;">
+                {% for instalacion in object_list %}
+                <tr>
+                    <td scope="row" style="text-align: center;">{{ instalacion.id_instalacion }}</td>
+                    <td scope="row">{{ instalacion.nombre }}</td>
+                    <td scope="row">{{ instalacion.direccion }}</td>
+                    <td scope="row" style="text-align: center;">{% if instalacion.iluminacion %}Si{% else %}No{% endif %}</td>
+                    <td scope="row" style="text-align: center;">{% if instalacion.cubierta %}Si{% else %}No{% endif %}</td>
+                    <td scope="row" class="text-center">
+                        <a class="btn btn-sm btn-primary me-2" href="{% url 'appLigas:editar_instalacion' pk=instalacion.id_instalacion %}">Editar</a>
+                        <a class="btn btn-sm btn-danger" href="{% url 'appLigas:eliminar_instalacion' pk=instalacion.id_instalacion %}">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
+
+
+
+
+{% comment %} {% extends "base.html" %}
+
+{% block titulo %} Pruebas bd {% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <h1 class="mt-6" >Tabla de Instalaciones</h1>
+    <a class="btn btn-primary mb-3" href="{% url 'appLigas:crear_instalacion' %}">Crear Instalación</a>
+    <div class="table-responsive">
+        <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
+            <thead class="table-active">
+                <tr>
+                    <th scope="col" style="width: 1%;">ID</th>
+                    <th scope="col">Nombre Instalación</th>
+                    <th scope="col">Dirección Instalación</th>
+                    <th scope="col">Iluminación</th>
+                    <th scope="col">Cubierta</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for instalacion in object_list %}
+                <tr>
+                    <td scope="row">{{ instalacion.id_instalacion }}</td>
+                    <td scope="row">{{ instalacion.nombre }}</td>
+                    <td scope="row">{{ instalacion.direccion }}</td>
+                    <td scope="row">{{ instalacion.iluminacion }}</td>
+                    <td scope="row">{{ instalacion.cubierta }}</td>
+                    <td scope="row">
+                        <a class="btn btn-sm btn-primary" href="{% url 'appLigas:editar_instalacion' pk=instalacion.id_instalacion %}">Editar</a>
+                        <a class="btn btn-sm btn-danger" href="{% url 'appLigas:eliminar_instalacion' pk=instalacion.id_instalacion %}">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %} {% endcomment %}

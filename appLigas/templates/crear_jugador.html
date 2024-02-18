@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% block titulo %}Crear Equipo{% endblock %}
+{% block titulo %}Crear Jugador{% endblock %}
 
 {% block contenido %}
-    <h1>Crear Equipo</h1>
-    <form method="post" action="{% url 'appLigas:crear_equipo' %}">
+    <h1>Crear Jugador</h1>
+    <form method="post" action="{% url 'appLigas:crear_jugador' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar</button>

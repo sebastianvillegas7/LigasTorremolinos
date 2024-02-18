@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 from . import models
 from . import forms 
-from .forms import DeporteForm, EquipoForm, InstalacionForm
+from .forms import DeporteForm, EquipoForm, InstalacionForm, JugadorForm, PartidoForm
 
 class ListadoView(generic.ListView): 
     model = models.Deporte
@@ -44,7 +44,7 @@ class EditarDeporteView(generic.UpdateView):
     
     
     
-# TODO: INSTALACIONES
+    # TODO: INSTALACIONES
 class ListadoInstalacionesView(generic.ListView): 
     model = models.Instalacion
     template_name = "listado_instalaciones.html"
@@ -69,6 +69,7 @@ class EditarInstalacionView(generic.UpdateView):
     form_class = InstalacionForm
     template_name = "editar_instalacion.html"
     success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    
     
     
     # TODO: EQUIPOS
@@ -97,4 +98,57 @@ class EditarEquipoView(generic.UpdateView):
     template_name = "editar_equipo.html"
     success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
     
+    
+    
     # TODO: JUGADORES
+class ListadoJugadoresView(generic.ListView): 
+    model = models.Jugador
+    template_name = "listado_jugadores.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)    
+        return context  
+    
+class CrearJugadorView(generic.CreateView):  
+    model = models.Jugador
+    form_class = JugadorForm  
+    template_name = "crear_jugador.html"  
+    success_url = "/listado_jugadores" 
+    
+class EliminarJugadorView(generic.DeleteView):
+    model = models.Jugador
+    template_name = "eliminar_jugador.html"
+    success_url = "/listado_jugadores"
+    
+class EditarJugadorView(generic.UpdateView):
+    model = models.Jugador
+    form_class = JugadorForm
+    template_name = "editar_jugador.html"
+    success_url = "/listado_jugadores"
+    
+    
+    # TODO: PARTIDOS
+class ListadoPartidosView(generic.ListView): 
+    model = models.Partido
+    template_name = "listado_partidos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)    
+        return context  
+    
+class CrearPartidoView(generic.CreateView):  
+    model = models.Partido
+    form_class = PartidoForm  
+    template_name = "crear_partido.html"  
+    success_url = "/listado_partidos"
+    
+class EliminarPartidoView(generic.DeleteView):
+    model = models.Partido
+    template_name = "eliminar_partido.html"
+    success_url = "/listado_partidos"
+    
+class EditarPartidoView(generic.UpdateView):
+    model = models.Partido
+    form_class = PartidoForm
+    template_name = "editar_partido.html"
+    success_url = "/listado_partidos"

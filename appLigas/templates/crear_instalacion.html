@@ -3,7 +3,7 @@
 
 {% block contenido %}
     <h1>Crear Instalación</h1>
-    <form method="post" action="{% url 'appLigas:crear_deporte' %}">
+    <form method="post" action="{% url 'appLigas:crear_instalacion' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar</button>

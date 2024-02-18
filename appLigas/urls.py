@@ -20,5 +20,14 @@ urlpatterns = [
     path('crear_equipo/', views.CrearEquipoView.as_view(), name="crear_equipo"),
     path('editar_equipo/<int:pk>', views.EditarEquipoView.as_view(), name="editar_equipo"),
     path('eliminar_equipo/<int:pk>', views.EliminarEquipoView.as_view(), name="eliminar_equipo"),
-    
+    # JUGADORES
+    path('listado_jugadores/', views.ListadoJugadoresView.as_view(), name="listado_jugadores"),
+    path('crear_jugador/', views.CrearJugadorView.as_view(), name="crear_jugador"),
+    path('editar_jugador/<int:pk>', views.EditarJugadorView.as_view(), name="editar_jugador"),
+    path('eliminar_jugador/<int:pk>', views.EliminarJugadorView.as_view(), name="eliminar_jugador"),
+    # PARTIDOS
+    path('listado_partidos/', views.ListadoPartidosView.as_view(), name="listado_partidos"),
+    path('crear_partido/', views.CrearPartidoView.as_view(), name="crear_partido"),
+    path('editar_partido/<int:pk>', views.EditarPartidoView.as_view(), name="editar_partido"),
+    path('eliminar_partido/<int:pk>', views.EliminarPartidoView.as_view(), name="eliminar_partido"),    
 ]

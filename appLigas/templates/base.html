@@ -1,14 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
 <head>
     <title>{% block titulo %}{% endblock %}</title>
+    <!-- Enlace al archivo CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <!-- Agrega la referencia al archivo CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="bg-dark text-light" style="padding-top: 40px;">
+    <!-- Barra de navegación fija en la parte superior -->    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="{% url 'appLigas:home' %}">Ligas Torremolinos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,12 +26,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'appLigas:listado_equipos' %}">Equipos</a>
                 </li>
-                {% comment %} <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_instalaciones' %}">Instalaciones</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'appLigas:listado_jugadores' %}">Jugadores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_instalaciones' %}">Instalaciones</a>
-                </li> {% endcomment %}
+                    <a class="nav-link" href="{% url 'appLigas:listado_partidos' %}">Partidos</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -38,17 +40,10 @@
         <!-- Contenido específico de cada página -->
         {% block contenido %}
         {% endblock %}
-    </div>
+    </div>  
+    
+    <!-- Agrega los scripts de Bootstrap y jQuery al final del cuerpo del documento para mejorar el rendimiento -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-{% comment %} {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{% block titulo %}{% endblock %}</title>
-        {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>{% block cuerpo %}{% endblock %}</body>
-</html> {% endcomment %}
