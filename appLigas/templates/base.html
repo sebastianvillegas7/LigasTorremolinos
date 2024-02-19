@@ -5,36 +5,67 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet"> <!-- fuente logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"> <!-- fuente navbar -->    
     <title>{% block titulo %}{% endblock %}</title>
     <!-- Enlace al archivo CSS personalizado -->
     <!-- Agrega la referencia al archivo CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">   
 </head>
 <body class="bg-dark text-light" style="padding-top: 38px;">
+
     <!-- Barra de navegación fija en la parte superior -->    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" href="{% url 'appLigas:home' %}" style="font-family: 'Protest Riot', sans-serif; font-weight: 400; font-style: normal;">Ligas Torremolinos</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" style="height: 50px">
+        <a class="navbar-brand" href="{% url 'appLigas:home' %}" style="font-family: 'Protest Riot', sans-serif; font-weight: 400; font-style: normal; display: flex; flex-direction: column;">
+            <span style="margin-bottom: -10px;">LIGAS</span>
+            <span style="text-align: center;">TORREMOLINOS</span>
+        </a>                
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav" style="font-family: 'Rubik', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_deportes' %}">Deportes</a>
+                <li class="nav-item" style="display: flex; justify-content: center; align-items: center; height: 50px;">
+                    <a class="nav-link {% if request.path == '/listado_deportes/' %}active{% endif %}" 
+                       href="{% url 'appLigas:listado_deportes' %}" 
+                       style="height: 80%;{% if request.path == '/listado_deportes/' %}background-color: #9CA9E8{% endif %}; text-align: center; border-radius: 10px">
+                       Deportes
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_instalaciones' %}">Instalaciones</a>
+                <li class="nav-item" style="display: flex; justify-content: center; align-items: center; height: 50px;">
+                    <a class="nav-link {% if request.path == '/listado_instalaciones/' %}active{% endif %}" 
+                       href="{% url 'appLigas:listado_instalaciones' %}" 
+                       style="height: 80%; {% if request.path == '/listado_instalaciones/' %}background-color: #9CA9E8;{% endif %}; text-align: center; border-radius: 10px">
+                       Instalaciones
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_equipos' %}">Equipos</a>
+                
+                <li class="nav-item" style="display: flex; justify-content: center; align-items: center; height: 50px;">
+                    <a class="nav-link {% if request.path == '/listado_equipos/' %}active{% endif %}" 
+                       href="{% url 'appLigas:listado_equipos' %}" 
+                       style="height: 80%; {% if request.path == '/listado_equipos/' %}background-color: #9CA9E8;{% endif %}; text-align: center; border-radius: 10px">
+                       Equipos
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_jugadores' %}">Jugadores</a>
+                
+                <li class="nav-item" style="display: flex; justify-content: center; align-items: center; height: 50px;">
+                    <a class="nav-link {% if request.path == '/listado_jugadores/' %}active{% endif %}" 
+                       href="{% url 'appLigas:listado_jugadores' %}" 
+                       style="height: 85%; {% if request.path == '/listado_jugadores/' %}background-color: #9CA9E8;{% endif %}; text-align: center; border-radius: 10px">
+                       Jugadores
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_partidos' %}">Partidos</a>
-                </li>
+                
+                <li class="nav-item" style="display: flex; justify-content: center; align-items: center; height: 50px;">
+                    <a class="nav-link {% if request.path == '/listado_partidos/' %}active{% endif %}" 
+                       href="{% url 'appLigas:listado_partidos' %}" 
+                       style="height: 85%; {% if request.path == '/listado_partidos/' %}background-color: #9CA9E8;{% endif %}; text-align: center; border-radius: 10px">
+                       Partidos
+                    </a>
+                </li>                
             </ul>
         </div>
     </nav>
@@ -63,63 +94,3 @@
     </script>
 </body>
 </html>
-
-
-{% comment %} {% load static %}
-<!DOCTYPE html>
-<html data-bs-theme="dark">
-<head>
-    <title>{% block titulo %}{% endblock %}</title>
-    <!-- Enlace al archivo CSS personalizado -->
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <!-- Agrega la referencia al archivo CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">   
-</head>
-<body class="bg-dark text-light" style="padding-top: 40px;">
-    <!-- Barra de navegación fija en la parte superior -->    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" href="{% url 'appLigas:home' %}">Ligas Torremolinos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_deportes' %}">Deportes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_instalaciones' %}">Instalaciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_equipos' %}">Equipos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_jugadores' %}">Jugadores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'appLigas:listado_partidos' %}">Partidos</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container mt-4">
-        <!-- Contenido específico de cada página -->
-        {% block contenido %}
-        {% endblock %}
-    </div>  
-    
-    <!-- Agrega los scripts de Bootstrap y jQuery al final del cuerpo del documento para mejorar el rendimiento -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Obtiene la URL actual
-            var url = window.location.pathname;
-            // Agrega la clase 'active' al enlace correspondiente en función de la URL
-            $('.navbar-nav .nav-item a[href="' + url + '"]').addClass('active');
-        });
-    </script>
-</body>
-</html>
- {% endcomment %}
