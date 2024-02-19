@@ -20,6 +20,7 @@ urlpatterns = [
     path('crear_equipo/', views.CrearEquipoView.as_view(), name="crear_equipo"),
     path('editar_equipo/<int:pk>', views.EditarEquipoView.as_view(), name="editar_equipo"),
     path('eliminar_equipo/<int:pk>', views.EliminarEquipoView.as_view(), name="eliminar_equipo"),
+    path('ligas/info_equipo/<int:pk>', views.info_equipo, name="info_equipo"),
     # JUGADORES
     path('listado_jugadores/', views.ListadoJugadoresView.as_view(), name="listado_jugadores"),
     path('crear_jugador/', views.CrearJugadorView.as_view(), name="crear_jugador"),

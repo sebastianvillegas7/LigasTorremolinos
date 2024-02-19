@@ -98,6 +98,10 @@ class EditarEquipoView(generic.UpdateView):
     template_name = "editar_equipo.html"
     success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
     
+def info_equipo(request, pk):
+    equipo = models.Equipo.objects.get(id_equipo = pk)
+    return render(request, 'info_equipo.html', {'equipo': equipo})
+    
     
     
     # TODO: JUGADORES
