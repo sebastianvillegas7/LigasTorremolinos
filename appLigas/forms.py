@@ -12,9 +12,9 @@ class DeporteForm(forms.ModelForm):
 class InstalacionForm(forms.ModelForm):
     class Meta:
         model = Instalacion
-        fields = ["id_instalacion", "nombre", "direccion", "iluminacion", "cubierta"]
+        fields = ["nombre", "direccion", "iluminacion", "cubierta"]
         widgets = {
-            "id_instalacion": forms.TextInput(attrs={"class":"form-control"}),
+            # "id_instalacion": forms.TextInput(attrs={"class":"form-control"}),
             "nombre": forms.TextInput(attrs={"class":"form-control"}),
             "direccion": forms.TextInput(attrs={"class":"form-control"}),
             "iluminacion": forms.CheckboxInput(attrs={"class":"form-check-input"}),
@@ -24,17 +24,19 @@ class InstalacionForm(forms.ModelForm):
 class EquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
-        fields = ["id_equipo", "nombre", "id_deporte", "equipacion_principal", "equipacion_suplente", "contacto", "telefono", "email"]
+        fields = ["nombre", "id_deporte", "equipacion_principal", "equipacion_suplente", "contacto", "telefono", "email"]
+        exclude = ['id_equipo']
         widgets = {
-            "id_equipo": forms.TextInput(attrs={"class":"form-control"}),
             "nombre": forms.TextInput(attrs={"class":"form-control"}),
-            "id_deporte": forms.Select(attrs={"class":"form-select"}),
+            "id_deporte": forms.Select(attrs={"class":"form-select"}, ),
             "equipacion_principal": forms.TextInput(attrs={"class":"form-control"}),
             "equipacion_suplente": forms.TextInput(attrs={"class":"form-control"}),
             "contacto": forms.TextInput(attrs={"class":"form-control"}),
             "telefono": forms.TextInput(attrs={"class":"form-control"}),
             "email": forms.EmailInput(attrs={"class":"form-control"}),
         }
+
+   
 
 class JugadorForm(forms.ModelForm):
     class Meta:

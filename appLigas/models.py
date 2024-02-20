@@ -9,9 +9,9 @@ class Deporte(models.Model):
         
     class Meta:        
         verbose_name_plural = "Deportes"
-        db_table = "deportes"
-        def __str__(self):
-            return f"{self.id_deporte} {self.nombre}"
+        db_table = "deportes"        
+    def __str__(self):
+        return f"{self.id_deporte} {self.nombre}"
         
 # Modelo Instalacion
 class Instalacion(models.Model):
@@ -23,8 +23,8 @@ class Instalacion(models.Model):
     class Meta:        
         verbose_name_plural = "Instalaciones"
         db_table = "instalaciones"
-        def __str__(self):
-            return f"{self.id_instalacion} {self.nombre} {self.nombre} {self.direccion} {self.iluminacion} {self.cubierta}"
+    def __str__(self):
+        return f"{self.id_instalacion} {self.nombre} {self.nombre} {self.direccion} {self.iluminacion} {self.cubierta}"
         
 # TODO: DESDE ACA
 # Modelo Equipo
@@ -41,7 +41,6 @@ class Equipo(models.Model):
     class Meta:
         verbose_name_plural = "Equipos"
         db_table = "equipos"
-
     def __str__(self):
         return f"{self.id_equipo} {self.nombre} {self.id_deporte} {self.equipacion_principal} {self.equipacion_suplente} {self.contacto} {self.telefono} {self.email}"
 
@@ -62,7 +61,6 @@ class Jugador(models.Model):
         verbose_name_plural = "Jugadores"
         db_table = "jugadores"
         unique_together = ['id_equipo', 'dorsal']  # Índice para evitar duplicados
-
     def __str__(self):
         return f"{self.id_jugador} {self.nombre} {self.apellido1} {self.apellido2} {self.id_equipo.id_equipo} {self.dorsal} {self.fecha_nacimiento} {self.altura} {self.peso} {self.telefono}"
     
@@ -81,6 +79,5 @@ class Partido(models.Model):
     class Meta:
         verbose_name_plural = "Partidos"
         db_table = "partidos"
-
     def __str__(self):
         return f"{self.id_partido} {self.id_deporte} {self.fecha_hora} {self.id_instalacion} {self.id_equipo_local} vs {self.id_equipo_visitante} - {self.puntos_local} {self.puntos_visitante} {self.observaciones}"
