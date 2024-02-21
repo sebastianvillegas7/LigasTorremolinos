@@ -41,13 +41,13 @@ class EquipoForm(forms.ModelForm):
 class JugadorForm(forms.ModelForm):
     class Meta:
         model = Jugador
-        fields = ["id_jugador", "nombre", "apellido1", "apellido2", "id_equipo", "dorsal", "fecha_nacimiento", "altura", "peso", "telefono"]
+        fields = ["nombre", "apellido1", "apellido2", "id_equipo", "dorsal", "fecha_nacimiento", "altura", "peso", "telefono"]
         widgets = {
-            "id_jugador": forms.TextInput(attrs={"class":"form-control"}),
+            # "id_jugador": forms.TextInput(attrs={"class":"form-control"}),
             "nombre": forms.TextInput(attrs={"class":"form-control"}),
             "apellido1": forms.TextInput(attrs={"class":"form-control"}),
             "apellido2": forms.TextInput(attrs={"class":"form-control"}),
-            "id_equipo": forms.Select(attrs={"class":"form-select"}),
+            "id_equipo": forms.Select(attrs={"class":"form-select"}),            
             "dorsal": forms.NumberInput(attrs={"class":"form-control"}),
             "fecha_nacimiento": forms.DateInput(attrs={"class":"form-control"}),
             "altura": forms.NumberInput(attrs={"class":"form-control"}),

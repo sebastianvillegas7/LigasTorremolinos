@@ -130,6 +130,15 @@ class CrearJugadorView(generic.CreateView):
     template_name = "crear_jugador.html"  
     success_url = "/listado_jugadores" 
     
+    # TODO: Si ya recibe el id_equipo como parámetro,
+    # TODO: es para agregar un jugador a un equipo en particular,
+    # TODO: sino es parar crear un jugador para cualquier equipo.
+    def get_initial(self):
+        initial = super().get_initial()
+        id_equipo = self.kwargs.get('pk')
+        if id_equipo:
+            initial['id_equipo'] = id_equipo
+        return initial    
 class EliminarJugadorView(generic.DeleteView):
     model = models.Jugador
     template_name = "eliminar_jugador.html"

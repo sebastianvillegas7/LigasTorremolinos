@@ -2,12 +2,12 @@
 {% block titulo %} Información de Equipo {% endblock %}
 {% block contenido %}
 
-<div class="d-flex align-items-center justify-content-center" style="height: 85vh; margin-top: -5px; margin-bottom: -5px;">
+<div class="d-flex align-items-center justify-content-center" style="height: 550px; margin-top: -5px; margin-bottom: -5px;">
     <div class="card text-white bg-dark" style="width: 90%;" style="border: 2px solid black;">        
-        <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse;">INFORMACIÓN DEL EQUIPO</div>
+        <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse;">INFORMACIÓN DEL EQUIPO <br>' {{ equipo.nombre }} '</div>
         <div class="card-body" style="border: 1px solid black; border-collapse: collapse;">
             <p><strong>ID:</strong> {{ equipo.id_equipo }}</p>
-            <p><strong>Nombre:</strong> {{ equipo.nombre }}</p>
+            <p><strong>Nombre:</strong>{{ equipo.nombre }}</p>
             <p><strong>ID Deporte:</strong> {{ equipo.id_deporte_id }}</p>
             <p><strong>Deporte:</strong>{% if equipo.id_deporte_id == 1 %}
                 Fútbol
@@ -46,6 +46,11 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="text-center" style="margin-bottom: 10px;">
+    <h3 class="text-center">Jugadores del Equipo '{{ equipo.nombre }}'</h3>
+    <a class="btn btn-info" href="{% url 'appLigas:crear_jugador' pk=equipo.id_equipo %}">Agregar Jugador al equipo '{{ equipo.nombre }}'</a>
 </div>
 <div class="container bg-dark text-light">    
     <div class="table-responsive">
