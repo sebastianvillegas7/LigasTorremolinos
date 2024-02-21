@@ -58,11 +58,10 @@ class JugadorForm(forms.ModelForm):
 class PartidoForm(forms.ModelForm):
     class Meta:
         model = Partido
-        fields = ["id_partido", "id_deporte", "fecha_hora", "id_instalacion", "id_equipo_local", "id_equipo_visitante", "puntos_local", "puntos_visitante", "observaciones"]
-        widgets = {
-            "id_partido": forms.TextInput(attrs={"class":"form-control"}),
+        fields = ["id_deporte", "fecha_hora", "id_instalacion", "id_equipo_local", "id_equipo_visitante", "puntos_local", "puntos_visitante", "observaciones"]
+        widgets = {            
             "id_deporte": forms.Select(attrs={"class":"form-select"}),
-            "fecha_hora": forms.DateTimeInput(attrs={"class":"form-control"}),
+            "fecha_hora": forms.DateTimeInput(attrs={"class":"form-control", "placeholder": "YYYY-MM-DD HH:MM:SS"}),
             "id_instalacion": forms.Select(attrs={"class":"form-select"}),
             "id_equipo_local": forms.Select(attrs={"class":"form-select"}),
             "id_equipo_visitante": forms.Select(attrs={"class":"form-select"}),
@@ -70,3 +69,12 @@ class PartidoForm(forms.ModelForm):
             "puntos_visitante": forms.NumberInput(attrs={"class":"form-control"}),
             "observaciones": forms.Textarea(attrs={"class":"form-control"}),
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        equipo_local = cleaned_data.get('id_equipo_local')
+        equipo_visitante = cleaned_data.get('id_equipo_visitante')
+
+        if equipo_local == equipo_visitante:
+            self.add_error(None, forms.ValidationError("El equipo local y el equipo visitante deben ser diferentes.", code='invalid', params={}))
+        return cleaned_data

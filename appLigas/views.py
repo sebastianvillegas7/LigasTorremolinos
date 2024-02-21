@@ -19,7 +19,11 @@ class ListadoView(generic.ListView):
 # TODO: DEPORTES
 class ListadoDeportesView(generic.ListView): 
     model = models.Deporte
-    template_name = "listado_deportes.html"
+    template_name = "listado_deportes.html"    
+    ordering = 'id_deporte'
+    
+    def get_queryset(self):
+        return super().get_queryset().order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    
@@ -159,10 +163,14 @@ def info_jugador(request, pk):
 class ListadoPartidosView(generic.ListView): 
     model = models.Partido
     template_name = "listado_partidos.html"
+    ordering = '-fecha_hora'
+    
+    def get_queryset(self):
+        return super().get_queryset().order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    
-        return context  
+        return context
     
 class CrearPartidoView(generic.CreateView):  
     model = models.Partido
@@ -180,3 +188,7 @@ class EditarPartidoView(generic.UpdateView):
     form_class = PartidoForm
     template_name = "editar_partido.html"
     success_url = "/listado_partidos"
+    
+def info_partido(request, pk):
+    partido = models.Partido.objects.get(id_partido = pk)   
+    return render(request, 'info_partido.html', {'partido': partido})  

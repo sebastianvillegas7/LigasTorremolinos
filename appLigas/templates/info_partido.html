@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block titulo %} Información de Partido {% endblock %}
+{% block contenido %}
+    <div class="d-flex align-items-center justify-content-center" style="height: 500px; margin-top: -5px; margin-bottom: 15px;">
+        <div class="card text-white bg-dark" style="width: 90%; border: 1px solid black;">        
+            <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse; ">INFORMACIÓN DEL PARTIDO <br>' ID {{ partido.id_partido }} '</div>
+            <div class="card-body" style="border-collapse: collapse; display: flex; flex-direction: row; justify-content: space-between;">
+                <div style="width: 45%;">
+                    <p><strong>ID:</strong> {{ partido.id_partido }}</p>
+                    <p><strong>Deporte:</strong> {{ partido.id_deporte.nombre }}</p>
+                    <p><strong>Fecha y Hora:</strong> {{ partido.fecha_hora }}</p>
+                    <p><strong>Instalación:</strong> {{ partido.id_instalacion.nombre }}</p>             
+                    <p><strong>Equipo Local:</strong> {{ partido.id_equipo_local.nombre }}</p>
+                </div>
+                <div style="width: 45%;">
+                    <p><strong>Equipo Visitante:</strong> {{ partido.id_equipo_visitante.nombre }}</p>
+                    <p><strong>Puntos Local:</strong> {{ partido.puntos_local }}</p>
+                    <p><strong>Puntos Visitante:</strong> {{ partido.puntos_visitante }}</p>
+                    <p><strong>Observaciones:</strong> {{ partido.observaciones }}</p>                    
+                </div>
+            </div>
+            <div class="text-center mt-3" style="margin-bottom: 15px;">
+                <a class="btn btn-sm btn-info" href="{% url 'appLigas:editar_partido' pk=partido.id_partido %}" style="margin-bottom: 2px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                    </svg>  
+                    Editar
+                </a>
+                <a class="btn btn-sm btn-danger" href="{% url 'appLigas:eliminar_partido' pk=partido.id_partido %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    </svg> 
+                    Borrar
+                </a>
+                <a class="btn btn-sm btn-secondary ml-2" href="#" onclick="history.go(-1);" style="width: 150px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                        <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z"/>
+                    </svg>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
