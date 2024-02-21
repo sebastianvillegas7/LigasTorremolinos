@@ -150,6 +150,19 @@ class EditarJugadorView(generic.UpdateView):
     template_name = "editar_jugador.html"
     success_url = "/listado_jugadores"
     
+def info_jugador(request, pk):
+    jugador = models.Jugador.objects.get(id_jugador = pk)
+    
+    # def get_context_data(**kwargs):
+    #     context = {}
+    #     jugadores = models.Jugador.objects.filter(id_equipo=pk)        
+        
+    #     context["jugadores"] = jugadores
+    #     return context
+
+    # context = get_context_data()
+    return render(request, 'info_jugador.html', jugador)  
+    
     
     # TODO: PARTIDOS
 class ListadoPartidosView(generic.ListView): 

@@ -27,6 +27,7 @@ urlpatterns = [
     path('crear_jugador/', views.CrearJugadorView.as_view(), name="crear_jugador"),
     path('editar_jugador/<int:pk>', views.EditarJugadorView.as_view(), name="editar_jugador"),
     path('eliminar_jugador/<int:pk>', views.EliminarJugadorView.as_view(), name="eliminar_jugador"),
+    path('info_jugador/<int:pk>', views.info_jugador, name="info_jugador"),
     # PARTIDOS
     path('listado_partidos/', views.ListadoPartidosView.as_view(), name="listado_partidos"),
     path('crear_partido/', views.CrearPartidoView.as_view(), name="crear_partido"),
