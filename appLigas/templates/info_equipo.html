@@ -7,9 +7,9 @@
         <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse;">INFORMACIÓN DEL EQUIPO <br>' {{ equipo.nombre }} '</div>
         <div class="card-body" style="border: 1px solid black; border-collapse: collapse;">
             <p><strong>ID:</strong> {{ equipo.id_equipo }}</p>
-            <p><strong>Nombre:</strong>{{ equipo.nombre }}</p>
+            <p><strong>Nombre:</strong> {{ equipo.nombre }}</p>
             <p><strong>ID Deporte:</strong> {{ equipo.id_deporte_id }}</p>
-            <p><strong>Deporte:</strong>{% if equipo.id_deporte_id == 1 %}
+            <p><strong>Deporte:</strong> {% if equipo.id_deporte_id == 1 %}
                 Fútbol
             {% elif equipo.id_deporte_id == 2 %}
                 Baloncesto

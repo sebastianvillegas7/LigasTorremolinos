@@ -27,33 +27,23 @@
         <div class="table-responsive">
             <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
                 <thead class="table-active">
-                    <tr>
-                        <th scope="col" style="width: 3%; text-align: center;"><i>ID</i></th>
+                    <tr>                        
                         <th scope="col"><i>Nombre</i></th>
                         <th scope="col"><i>Apellido 1</i></th>
                         <th scope="col"><i>Apellido 2</i></th>
-                        <th scope="col" style="text-align: center;"><i>ID Equipo</i></th>
-                        <th scope="col" style="text-align: center;"><i>Dorsal</i></th>
-                        <th scope="col"><i>Fecha de nacimiento</i></th>
-                        <th scope="col" style="text-align: center;"><i>Altura</i></th>
-                        <th scope="col" style="text-align: center;"><i>Peso</i></th>
-                        <th scope="col" style="text-align: center;"><i>Teléfono</i></th>
+                        <th scope="col" style="text-align: center;"><i>Equipo</i></th>
+                        <th scope="col" style="text-align: center;"><i>Teléfono</i></th>                        
                         <th scope="col" style="text-align: center;"><i>Acciones</i></th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider" style="font-size: 0.9rem;">
                     {% for jugador in object_list %}
-                    <tr onclick="window.location='{% url 'appLigas:info_jugador' jugador.id_jugador %}'">
-                        <td scope="row" style="text-align: center;">{{ jugador.id_jugador }}</td>
+                    <tr onclick="window.location='{% url 'appLigas:info_jugador' pk=jugador.id_jugador %}'" style="cursor: pointer;">                        
                         <td scope="row">{{ jugador.nombre }}</td>
                         <td scope="row">{{ jugador.apellido1 }}</td>
                         <td scope="row">{{ jugador.apellido2 }}</td>
-                        <td scope="row" style="text-align: center;">{{ jugador.id_equipo.id_equipo }}</td>
-                        <td scope="row" style="text-align: center;">{{ jugador.dorsal }}</td>
-                        <td scope="row">{{ jugador.fecha_nacimiento }}</td>
-                        <td scope="row" style="text-align: center;">{{ jugador.altura }}</td>
-                        <td scope="row" style="text-align: center;">{{ jugador.peso }}</td>
-                        <td scope="row">{{ jugador.telefono }}</td>
+                        <td scope="row" style="text-align: center;">{{ jugador.id_equipo.nombre }}</td>
+                        <td scope="row" style="text-align: center;">{{ jugador.telefono }}</td>
                         <td scope="row" class="text-center">
                             <a class="btn btn-sm btn-info me-2" style="margin-right: 8px;" href="{% url 'appLigas:editar_jugador' pk=jugador.id_jugador %}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px;">

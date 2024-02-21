@@ -8,12 +8,12 @@ class ListadoView(generic.ListView):
     model = models.Deporte
     template_name = "home.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['instalaciones'] = models.Instalacion.objects.all() #ya
-        context['equipos'] = models.Equipo.objects.all()
-        context['jugadores'] = models.Jugador.objects.all()
-        context['partidos'] = models.Partido.objects.all()
+    def get_context_data(self, **kwargs): # no se usa
+        context = super().get_context_data(**kwargs) # no se usa
+        context['instalaciones'] = models.Instalacion.objects.all() # no se usa
+        context['equipos'] = models.Equipo.objects.all() # no se usa
+        context['jugadores'] = models.Jugador.objects.all() # no se usa
+        context['partidos'] = models.Partido.objects.all() # no se usa
         return context
     
 # TODO: DEPORTES
@@ -151,17 +151,8 @@ class EditarJugadorView(generic.UpdateView):
     success_url = "/listado_jugadores"
     
 def info_jugador(request, pk):
-    jugador = models.Jugador.objects.get(id_jugador = pk)
-    
-    # def get_context_data(**kwargs):
-    #     context = {}
-    #     jugadores = models.Jugador.objects.filter(id_equipo=pk)        
-        
-    #     context["jugadores"] = jugadores
-    #     return context
-
-    # context = get_context_data()
-    return render(request, 'info_jugador.html', jugador)  
+    jugador = models.Jugador.objects.get(id_jugador = pk)   
+    return render(request, 'info_jugador.html', {'jugador': jugador})  
     
     
     # TODO: PARTIDOS
