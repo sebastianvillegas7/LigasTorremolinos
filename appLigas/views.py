@@ -30,22 +30,22 @@ class ListadoDeportesView(generic.ListView):
         context = super().get_context_data(**kwargs)    
         return context
 
-class CrearDeporteView(generic.CreateView):  # Asegúrate de usar CreateView para crear una nueva instancia del modelo Deporte
+class CrearDeporteView(generic.CreateView):  
     model = models.Deporte
-    form_class = DeporteForm  # Especifica el formulario que utilizarás
-    template_name = "crear_deporte.html"  # Define el nombre del template
-    success_url = "/listado_deportes"  # Define la URL a la que se redirigirá después de crear el deporte
+    form_class = DeporteForm  
+    template_name = "crear_deporte.html"  
+    success_url = "/listado_deportes"  
 
 class EliminarDeporteView(generic.DeleteView):
     model = models.Deporte
     template_name = "eliminar_deporte.html"
-    success_url = "/listado_deportes"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_deportes"  
 
 class EditarDeporteView(generic.UpdateView):
     model = models.Deporte
     form_class = DeporteForm
     template_name = "editar_deporte.html"
-    success_url = "/listado_deportes"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_deportes"  
     
     
     
@@ -58,22 +58,22 @@ class ListadoInstalacionesView(generic.ListView):
         context = super().get_context_data(**kwargs)    
         return context    
     
-class CrearInstalacionView(generic.CreateView):  # Asegúrate de usar CreateView para crear una nueva instancia del modelo Deporte
+class CrearInstalacionView(generic.CreateView):  
     model = models.Instalacion
-    form_class = InstalacionForm  # Especifica el formulario que utilizarás
-    template_name = "crear_instalacion.html"  # Define el nombre del template
-    success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    form_class = InstalacionForm  
+    template_name = "crear_instalacion.html"  
+    success_url = "/listado_instalaciones"  
 
 class EliminarInstalacionView(generic.DeleteView):
     model = models.Instalacion
     template_name = "eliminar_instalacion.html"
-    success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_instalaciones"  
 
 class EditarInstalacionView(generic.UpdateView):
     model = models.Instalacion
     form_class = InstalacionForm
     template_name = "editar_instalacion.html"
-    success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_instalaciones"  
     
     
     
@@ -86,22 +86,22 @@ class ListadoEquiposView(generic.ListView):
         context = super().get_context_data(**kwargs)    
         return context    
     
-class CrearEquipoView(generic.CreateView):  # Asegúrate de usar CreateView para crear una nueva instancia del modelo Deporte
+class CrearEquipoView(generic.CreateView):  
     model = models.Equipo
-    form_class = EquipoForm  # Especifica el formulario que utilizarás
-    template_name = "crear_equipo.html"  # Define el nombre del template
-    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+    form_class = EquipoForm  
+    template_name = "crear_equipo.html"  
+    success_url = "/listado_equipos"  
 
 class EliminarEquipoView(generic.DeleteView):
     model = models.Equipo
     template_name = "eliminar_equipo.html"
-    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_equipos"  
 
 class EditarEquipoView(generic.UpdateView):
     model = models.Equipo
     form_class = EquipoForm
     template_name = "editar_equipo.html"
-    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_equipos"  
     
 def agregar_jugador_equipo(request, pk):
     equipo = models.Equipo.objects.get(id_equipo = pk)
@@ -136,7 +136,7 @@ class CrearJugadorView(generic.CreateView):
     success_url = "/listado_jugadores" 
     
     # TODO: Si ya recibe el id_equipo como parámetro,
-    # TODO: es para agregar un jugador a un equipo en particular,
+    # TODO: es para agregar un jugador a ese equipo en particular,
     # TODO: sino es parar crear un jugador para cualquier equipo.
     def get_initial(self):
         initial = super().get_initial()
