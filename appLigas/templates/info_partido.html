@@ -8,15 +8,15 @@
                 <div style="width: 45%;">
                     <p><strong>ID:</strong> {{ partido.id_partido }}</p>
                     <p><strong>Deporte:</strong> {{ partido.id_deporte.nombre }}</p>
-                    <p><strong>Fecha y Hora:</strong> {{ partido.fecha_hora }}</p>
+                    <p><strong>Fecha y Hora:</strong> {{ partido.fecha_hora | date:"d/m/Y" }} - {{ partido.fecha_hora | time:"H:i" }}hs</p>
                     <p><strong>Instalación:</strong> {{ partido.id_instalacion.nombre }}</p>             
-                    <p><strong>Equipo Local:</strong> {{ partido.id_equipo_local.nombre }}</p>
+                    <p><strong>Observaciones:</strong> {{ partido.observaciones }}</p>                    
                 </div>
                 <div style="width: 45%;">
+                    <p><strong>Equipo Local:</strong> {{ partido.id_equipo_local.nombre }}</p>
                     <p><strong>Equipo Visitante:</strong> {{ partido.id_equipo_visitante.nombre }}</p>
                     <p><strong>Puntos Local:</strong> {{ partido.puntos_local }}</p>
                     <p><strong>Puntos Visitante:</strong> {{ partido.puntos_visitante }}</p>
-                    <p><strong>Observaciones:</strong> {{ partido.observaciones }}</p>                    
                 </div>
             </div>
             <div class="text-center mt-3" style="margin-bottom: 15px;">

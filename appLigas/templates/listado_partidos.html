@@ -40,7 +40,7 @@
             <tbody class="table-group-divider" style="font-size: 0.9rem;">
                 {% for partido in object_list %}
                 <tr onclick="window.location='{% url 'appLigas:info_partido' partido.id_partido %}'" style="cursor: pointer;">                    
-                    <td scope="row">{{ partido.fecha_hora }}</td>
+                    <td scope="row">{{ partido.fecha_hora | date:"d/m/Y" }}<br>{{ partido.fecha_hora | time:"H:i" }}hs</td>
                     <td scope="row" style="text-align: center;">{{ partido.id_deporte.nombre }}</td>                    
                     <td scope="row">{{ partido.id_equipo_local.nombre }}</td>
                     <td scope="row">{{ partido.id_equipo_visitante.nombre }}</td>

@@ -16,18 +16,6 @@ class ListadoView(generic.ListView):
         context["ultimos_partidos_jugados"] = ultimos_partidos_jugados
         context["proximos_partidos"] = proximos_partidos
         return context
-
-# class ListadoView(generic.ListView): 
-#     model = models.Deporte
-#     template_name = "home.html"
-
-#     def get_context_data(self, **kwargs): # no se usa
-#         context = super().get_context_data(**kwargs) # no se usa
-#         context['instalaciones'] = models.Instalacion.objects.all() # no se usa
-#         context['equipos'] = models.Equipo.objects.all() # no se usa
-#         context['jugadores'] = models.Jugador.objects.all() # no se usa
-#         context['partidos'] = models.Partido.objects.all() # no se usa
-#         return context
     
 # TODO: DEPORTES
 class ListadoDeportesView(generic.ListView): 
