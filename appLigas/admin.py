@@ -14,12 +14,6 @@ class InstalacionAdmin(admin.ModelAdmin):
     model = Instalacion
     list_display = ["id_instalacion", "nombre", "direccion", "iluminacion", "cubierta"]
     search_fields = ["nombre"]
-    
-# @admin.register(Equipo)
-# class EquipoAdmin(admin.ModelAdmin):
-#     model = Equipo
-#     list_display = ["id_equipo", "nombre", "id_deporte", "contacto", "telefono", "email"]
-#     search_fields = ["nombre", "id_deporte", "contacto"]
 
 @admin.register(Equipo)
 class EquipoAdmin(admin.ModelAdmin):
@@ -29,7 +23,7 @@ class EquipoAdmin(admin.ModelAdmin):
 
     def deporte(self, obj):
         return obj.id_deporte.nombre
-    # para poder buscar por el nombre del deporte 
+    # Para poder buscar por el nombre del deporte 
     deporte.admin_order_field = 'id_deporte__nombre'
     deporte.short_description = 'Deporte'
 
@@ -43,19 +37,13 @@ class JugadorAdmin(admin.ModelAdmin):
     def equipo_id(self, obj):
         return obj.id_equipo.nombre
 
-    # Método para mostrar los apellidos en un formato legible
+    # Método para mostrar los apellidos juntos si tiene 2
     def apellidos(self, obj):
         return f"{obj.apellido1} {obj.apellido2}" if obj.apellido2 else obj.apellido1
 
-    # Asigna el campo "nombre" del equipo como el campo para buscar en "equipo_id"
+    # Asigna el campo "nombre" del equipo como el campo para buscar
     equipo_id.short_description = 'Equipo'
     apellidos.short_description = 'Apellidos'
-
-from django.contrib import admin
-from .models import Partido
-
-from django.contrib import admin
-from .models import Partido
 
 @admin.register(Partido)
 class PartidoAdmin(admin.ModelAdmin):

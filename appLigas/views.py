@@ -4,10 +4,11 @@ from django.utils import timezone
 from . import models
 from .forms import DeporteForm, EquipoForm, InstalacionForm, JugadorForm, PartidoForm
 
+# TODO: HOME
 class ListadoView(generic.ListView): 
     model = models.Deporte
     template_name = "home.html"
-
+    # Se obtienen los partidos en el contexto para mostrar las tablas del home
     def get_context_data(self, **kwargs):
         ultimos_partidos_jugados = models.Partido.objects.filter(fecha_hora__lt=timezone.now()).order_by("-fecha_hora")[:5]
         proximos_partidos = models.Partido.objects.filter(fecha_hora__gte=timezone.now()).order_by("fecha_hora")[:5]
@@ -49,7 +50,7 @@ class EditarDeporteView(generic.UpdateView):
     
     
     
-    # TODO: INSTALACIONES
+# TODO: INSTALACIONES
 class ListadoInstalacionesView(generic.ListView): 
     model = models.Instalacion
     template_name = "listado_instalaciones.html"
@@ -77,7 +78,7 @@ class EditarInstalacionView(generic.UpdateView):
     
     
     
-    # TODO: EQUIPOS
+# TODO: EQUIPOS
 class ListadoEquiposView(generic.ListView): 
     model = models.Equipo
     template_name = "listado_equipos.html"
@@ -120,7 +121,7 @@ def info_equipo(request, pk):
     context = get_context_data()
     return render(request, 'info_equipo.html', context)    
     
-    # TODO: JUGADORES
+# TODO: JUGADORES
 class ListadoJugadoresView(generic.ListView): 
     model = models.Jugador
     template_name = "listado_jugadores.html"
@@ -135,9 +136,9 @@ class CrearJugadorView(generic.CreateView):
     template_name = "crear_jugador.html"  
     success_url = "/listado_jugadores" 
     
-    # TODO: Si ya recibe el id_equipo como parámetro,
-    # TODO: es para agregar un jugador a ese equipo en particular,
-    # TODO: sino es parar crear un jugador para cualquier equipo.
+    # Si ya recibe el id_equipo como parámetro,
+    # es para agregar un jugador a ese equipo en particular,
+    # sino es parar crear un jugador para cualquier equipo.
     def get_initial(self):
         initial = super().get_initial()
         id_equipo = self.kwargs.get('pk')
@@ -160,11 +161,11 @@ def info_jugador(request, pk):
     return render(request, 'info_jugador.html', {'jugador': jugador})  
     
     
-    # TODO: PARTIDOS
+# TODO: PARTIDOS
 class ListadoPartidosView(generic.ListView): 
     model = models.Partido
     template_name = "listado_partidos.html"
-    ordering = '-fecha_hora'
+    ordering = '-fecha_hora' # se ordena por la fecha de forma descendente
     
     def get_queryset(self):
         return super().get_queryset().order_by(self.ordering)

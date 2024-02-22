@@ -24,10 +24,8 @@ class Instalacion(models.Model):
         verbose_name_plural = "Instalaciones"
         db_table = "instalaciones"
     def __str__(self):
-        return f"{self.id_instalacion} {self.nombre}"
-    # {self.nombre} {self.direccion} {self.iluminacion} {self.cubierta}
+        return f"{self.id_instalacion} {self.nombre}"    
         
-# TODO: DESDE ACA
 # Modelo Equipo
 class Equipo(models.Model):
     id_equipo = models.IntegerField(primary_key=True)
@@ -43,8 +41,7 @@ class Equipo(models.Model):
         verbose_name_plural = "Equipos"
         db_table = "equipos"
     def __str__(self):
-        return f"{self.id_equipo} {self.nombre}"
-    #  {self.id_deporte} {self.equipacion_principal} {self.equipacion_suplente} {self.contacto} {self.telefono} {self.email}
+        return f"{self.id_equipo} {self.nombre}"    
 
 # Modelo Jugador
 class Jugador(models.Model):

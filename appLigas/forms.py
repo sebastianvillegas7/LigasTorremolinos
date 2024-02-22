@@ -13,8 +13,7 @@ class InstalacionForm(forms.ModelForm):
     class Meta:
         model = Instalacion
         fields = ["nombre", "direccion", "iluminacion", "cubierta"]
-        widgets = {
-            # "id_instalacion": forms.TextInput(attrs={"class":"form-control"}),
+        widgets = {            
             "nombre": forms.TextInput(attrs={"class":"form-control"}),
             "direccion": forms.TextInput(attrs={"class":"form-control"}),
             "iluminacion": forms.CheckboxInput(attrs={"class":"form-check-input"}),
@@ -42,8 +41,7 @@ class JugadorForm(forms.ModelForm):
     class Meta:
         model = Jugador
         fields = ["nombre", "apellido1", "apellido2", "id_equipo", "dorsal", "fecha_nacimiento", "altura", "peso", "telefono"]
-        widgets = {
-            # "id_jugador": forms.TextInput(attrs={"class":"form-control"}),
+        widgets = {            
             "nombre": forms.TextInput(attrs={"class":"form-control"}),
             "apellido1": forms.TextInput(attrs={"class":"form-control"}),
             "apellido2": forms.TextInput(attrs={"class":"form-control"}),
@@ -70,6 +68,7 @@ class PartidoForm(forms.ModelForm):
             "observaciones": forms.Textarea(attrs={"class":"form-control"}),
         }
 
+    # Método para verificar que el equipo local y visitante sean distintos
     def clean(self):
         cleaned_data = super().clean()
         equipo_local = cleaned_data.get('id_equipo_local')
