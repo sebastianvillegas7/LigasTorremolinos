@@ -1,50 +1,56 @@
 from django.shortcuts import render
 from django.views import generic
+from django.utils import timezone
 from . import models
-from . import forms 
 from .forms import DeporteForm, EquipoForm, InstalacionForm, JugadorForm, PartidoForm
 
+# TODO: HOME
 class ListadoView(generic.ListView): 
     model = models.Deporte
     template_name = "home.html"
-
+    # Se obtienen los partidos en el contexto para mostrar las tablas del home
     def get_context_data(self, **kwargs):
+        ultimos_partidos_jugados = models.Partido.objects.filter(fecha_hora__lt=timezone.now()).order_by("-fecha_hora")[:5]
+        proximos_partidos = models.Partido.objects.filter(fecha_hora__gte=timezone.now()).order_by("fecha_hora")[:5]
+
         context = super().get_context_data(**kwargs)
-        context['instalaciones'] = models.Instalacion.objects.all() #ya
-        context['equipos'] = models.Equipo.objects.all()
-        context['jugadores'] = models.Jugador.objects.all()
-        context['partidos'] = models.Partido.objects.all()
+        context["ultimos_partidos_jugados"] = ultimos_partidos_jugados
+        context["proximos_partidos"] = proximos_partidos
         return context
     
 # TODO: DEPORTES
 class ListadoDeportesView(generic.ListView): 
     model = models.Deporte
-    template_name = "listado_deportes.html"
+    template_name = "listado_deportes.html"    
+    ordering = 'id_deporte'
+    
+    def get_queryset(self):
+        return super().get_queryset().order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    
         return context
 
-class CrearDeporteView(generic.CreateView):  # Asegúrate de usar CreateView para crear una nueva instancia del modelo Deporte
+class CrearDeporteView(generic.CreateView):  
     model = models.Deporte
-    form_class = DeporteForm  # Especifica el formulario que utilizarás
-    template_name = "crear_deporte.html"  # Define el nombre del template
-    success_url = "/listado_deportes"  # Define la URL a la que se redirigirá después de crear el deporte
+    form_class = DeporteForm  
+    template_name = "crear_deporte.html"  
+    success_url = "/listado_deportes"  
 
 class EliminarDeporteView(generic.DeleteView):
     model = models.Deporte
     template_name = "eliminar_deporte.html"
-    success_url = "/listado_deportes"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_deportes"  
 
 class EditarDeporteView(generic.UpdateView):
     model = models.Deporte
     form_class = DeporteForm
     template_name = "editar_deporte.html"
-    success_url = "/listado_deportes"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_deportes"  
     
     
     
-    # TODO: INSTALACIONES
+# TODO: INSTALACIONES
 class ListadoInstalacionesView(generic.ListView): 
     model = models.Instalacion
     template_name = "listado_instalaciones.html"
@@ -53,26 +59,26 @@ class ListadoInstalacionesView(generic.ListView):
         context = super().get_context_data(**kwargs)    
         return context    
     
-class CrearInstalacionView(generic.CreateView):  # Asegúrate de usar CreateView para crear una nueva instancia del modelo Deporte
+class CrearInstalacionView(generic.CreateView):  
     model = models.Instalacion
-    form_class = InstalacionForm  # Especifica el formulario que utilizarás
-    template_name = "crear_instalacion.html"  # Define el nombre del template
-    success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    form_class = InstalacionForm  
+    template_name = "crear_instalacion.html"  
+    success_url = "/listado_instalaciones"  
 
 class EliminarInstalacionView(generic.DeleteView):
     model = models.Instalacion
     template_name = "eliminar_instalacion.html"
-    success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_instalaciones"  
 
 class EditarInstalacionView(generic.UpdateView):
     model = models.Instalacion
     form_class = InstalacionForm
     template_name = "editar_instalacion.html"
-    success_url = "/listado_instalaciones"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_instalaciones"  
     
     
     
-    # TODO: EQUIPOS
+# TODO: EQUIPOS
 class ListadoEquiposView(generic.ListView): 
     model = models.Equipo
     template_name = "listado_equipos.html"
@@ -81,22 +87,22 @@ class ListadoEquiposView(generic.ListView):
         context = super().get_context_data(**kwargs)    
         return context    
     
-class CrearEquipoView(generic.CreateView):  # Asegúrate de usar CreateView para crear una nueva instancia del modelo Deporte
+class CrearEquipoView(generic.CreateView):  
     model = models.Equipo
-    form_class = EquipoForm  # Especifica el formulario que utilizarás
-    template_name = "crear_equipo.html"  # Define el nombre del template
-    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+    form_class = EquipoForm  
+    template_name = "crear_equipo.html"  
+    success_url = "/listado_equipos"  
 
 class EliminarEquipoView(generic.DeleteView):
     model = models.Equipo
     template_name = "eliminar_equipo.html"
-    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_equipos"  
 
 class EditarEquipoView(generic.UpdateView):
     model = models.Equipo
     form_class = EquipoForm
     template_name = "editar_equipo.html"
-    success_url = "/listado_equipos"  # Define la URL a la que se redirigirá después de crear el deporte
+    success_url = "/listado_equipos"  
     
 def agregar_jugador_equipo(request, pk):
     equipo = models.Equipo.objects.get(id_equipo = pk)
@@ -115,7 +121,7 @@ def info_equipo(request, pk):
     context = get_context_data()
     return render(request, 'info_equipo.html', context)    
     
-    # TODO: JUGADORES
+# TODO: JUGADORES
 class ListadoJugadoresView(generic.ListView): 
     model = models.Jugador
     template_name = "listado_jugadores.html"
@@ -130,9 +136,9 @@ class CrearJugadorView(generic.CreateView):
     template_name = "crear_jugador.html"  
     success_url = "/listado_jugadores" 
     
-    # TODO: Si ya recibe el id_equipo como parámetro,
-    # TODO: es para agregar un jugador a un equipo en particular,
-    # TODO: sino es parar crear un jugador para cualquier equipo.
+    # Si ya recibe el id_equipo como parámetro,
+    # es para agregar un jugador a ese equipo en particular,
+    # sino es parar crear un jugador para cualquier equipo.
     def get_initial(self):
         initial = super().get_initial()
         id_equipo = self.kwargs.get('pk')
@@ -151,27 +157,22 @@ class EditarJugadorView(generic.UpdateView):
     success_url = "/listado_jugadores"
     
 def info_jugador(request, pk):
-    jugador = models.Jugador.objects.get(id_jugador = pk)
-    
-    # def get_context_data(**kwargs):
-    #     context = {}
-    #     jugadores = models.Jugador.objects.filter(id_equipo=pk)        
-        
-    #     context["jugadores"] = jugadores
-    #     return context
-
-    # context = get_context_data()
-    return render(request, 'info_jugador.html', jugador)  
+    jugador = models.Jugador.objects.get(id_jugador = pk)   
+    return render(request, 'info_jugador.html', {'jugador': jugador})  
     
     
-    # TODO: PARTIDOS
+# TODO: PARTIDOS
 class ListadoPartidosView(generic.ListView): 
     model = models.Partido
     template_name = "listado_partidos.html"
+    ordering = '-fecha_hora' # se ordena por la fecha de forma descendente
+    
+    def get_queryset(self):
+        return super().get_queryset().order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    
-        return context  
+        return context
     
 class CrearPartidoView(generic.CreateView):  
     model = models.Partido
@@ -189,3 +190,7 @@ class EditarPartidoView(generic.UpdateView):
     form_class = PartidoForm
     template_name = "editar_partido.html"
     success_url = "/listado_partidos"
+    
+def info_partido(request, pk):
+    partido = models.Partido.objects.get(id_partido = pk)   
+    return render(request, 'info_partido.html', {'partido': partido})  

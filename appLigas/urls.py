@@ -3,6 +3,7 @@ from . import views
 
 app_name="appLigas"
 urlpatterns = [
+    # HOME
     path('', views.ListadoView.as_view(), name="home"),   
     path('home/', views.ListadoView.as_view(), name="home"),        
     # DEPORTES
@@ -33,4 +34,5 @@ urlpatterns = [
     path('crear_partido/', views.CrearPartidoView.as_view(), name="crear_partido"),
     path('editar_partido/<int:pk>', views.EditarPartidoView.as_view(), name="editar_partido"),
     path('eliminar_partido/<int:pk>', views.EliminarPartidoView.as_view(), name="eliminar_partido"),    
+    path('info_partido/<int:pk>', views.info_partido, name="info_partido"),
 ]

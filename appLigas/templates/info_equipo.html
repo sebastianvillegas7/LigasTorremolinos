@@ -7,9 +7,9 @@
         <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse;">INFORMACIÓN DEL EQUIPO <br>' {{ equipo.nombre }} '</div>
         <div class="card-body" style="border: 1px solid black; border-collapse: collapse;">
             <p><strong>ID:</strong> {{ equipo.id_equipo }}</p>
-            <p><strong>Nombre:</strong>{{ equipo.nombre }}</p>
+            <p><strong>Nombre:</strong> {{ equipo.nombre }}</p>
             <p><strong>ID Deporte:</strong> {{ equipo.id_deporte_id }}</p>
-            <p><strong>Deporte:</strong>{% if equipo.id_deporte_id == 1 %}
+            <p><strong>Deporte:</strong> {% if equipo.id_deporte_id == 1 %}
                 Fútbol
             {% elif equipo.id_deporte_id == 2 %}
                 Baloncesto
@@ -32,9 +32,9 @@
                     Editar                         
                 </a>
                 <a class="btn btn-sm btn-danger ml-2" href="{% url 'appLigas:eliminar_equipo' pk=equipo.id_equipo %}" style="width: 100px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" style="margin-bottom: 3px;">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                    </svg>   
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    </svg>     
                     Borrar                         
                 </a>
                 <a class="btn btn-sm btn-secondary ml-2" href="#" onclick="history.go(-1);" style="width: 150px">

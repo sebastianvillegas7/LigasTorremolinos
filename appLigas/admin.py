@@ -7,55 +7,70 @@ from .models import Deporte, Equipo, Instalacion, Jugador, Partido
 class DeportesAdmin(admin.ModelAdmin):
     model = Deporte
     list_display = ["id_deporte", "nombre"]
-    search_fields = ["id_deporte", "nombre"]
+    search_fields = ["nombre"]
 
 @admin.register(Instalacion)
 class InstalacionAdmin(admin.ModelAdmin):
     model = Instalacion
     list_display = ["id_instalacion", "nombre", "direccion", "iluminacion", "cubierta"]
-    search_fields = ["id_instalacion", "nombre"]
-    
+    search_fields = ["nombre"]
+
 @admin.register(Equipo)
 class EquipoAdmin(admin.ModelAdmin):
     model = Equipo
-    list_display = ["id_equipo", "nombre", "id_deporte", "equipacion_principal", "equipacion_suplente", "contacto", "telefono", "email"]
-    search_fields = ["id_equipo", "nombre"]
+    list_display = ["id_equipo", "nombre", "deporte", "contacto", "telefono", "email"]
+    search_fields = ["nombre", "contacto", "telefono", "email", "id_deporte__nombre"]
+
+    def deporte(self, obj):
+        return obj.id_deporte.nombre
+    # Para poder buscar por el nombre del deporte 
+    deporte.admin_order_field = 'id_deporte__nombre'
+    deporte.short_description = 'Deporte'
 
 @admin.register(Jugador)
 class JugadorAdmin(admin.ModelAdmin):
     model = Jugador
-    list_display = ["id_jugador", "nombre", "apellido1", "apellido2", "equipo_id", "dorsal", "fecha_nacimiento", "altura", "peso", "telefono"]
-    search_fields = ["id_jugador", "nombre"]
+    list_display = ["id_jugador", "nombre", "apellidos", "equipo_id", "telefono"]
+    search_fields = ["nombre", "apellido1", "apellido2", "id_equipo__nombre"]
 
+    # Método para mostrar el nombre del equipo en la lista de visualización
     def equipo_id(self, obj):
-        return obj.id_equipo.id_equipo
+        return obj.id_equipo.nombre
 
-    equipo_id.short_description = 'ID Equipo'
+    # Método para mostrar los apellidos juntos si tiene 2
+    def apellidos(self, obj):
+        return f"{obj.apellido1} {obj.apellido2}" if obj.apellido2 else obj.apellido1
+
+    # Asigna el campo "nombre" del equipo como el campo para buscar
+    equipo_id.short_description = 'Equipo'
+    apellidos.short_description = 'Apellidos'
 
 @admin.register(Partido)
 class PartidoAdmin(admin.ModelAdmin):
     model = Partido
-    list_display = ["id_partido", "deporte_id", "fecha_hora", "instalacion_id", "equipo_local_id", "equipo_visitante_id", "puntos_local", "puntos_visitante", "observaciones"]
-    search_fields = ["id_partido"]
+    list_display = ["fecha_hora", "deporte", "instalacion", "equipo_local", "equipo_visitante", "resultado"]
+    search_fields = ["id_deporte__nombre", "id_instalacion__nombre", "id_equipo_local__nombre", "id_equipo_visitante__nombre"]
 
-    def deporte_id(self, obj):
-        return obj.id_deporte.id_deporte
+    # Método para mostrar los puntos locales y visitantes en un solo campo
+    def resultado(self, obj):
+        return f"{obj.puntos_local} : {obj.puntos_visitante}"
+
+    # Métodos para mostrar los nombres de deporte, instalación, equipo local y equipo visitante
+    def deporte(self, obj):
+        return obj.id_deporte.nombre
+
+    def instalacion(self, obj):
+        return obj.id_instalacion.nombre
     
-    def instalacion_id(self, obj):
-        return obj.id_instalacion.id_instalacion
-    
-    def equipo_local_id(self, obj):
-        return obj.id_equipo_local.id_equipo
+    def equipo_local(self, obj):
+        return obj.id_equipo_local.nombre
 
-    def equipo_visitante_id(self, obj):
-        return obj.id_equipo_visitante.id_equipo
+    def equipo_visitante(self, obj):
+        return obj.id_equipo_visitante.nombre
 
-    equipo_local_id.short_description = 'ID Equipo Local'
-    equipo_visitante_id.short_description = 'ID Equipo Visitante'
+    resultado.short_description = 'Resultado'
+    deporte.short_description = 'Deporte'
+    instalacion.short_description = 'Instalación'
+    equipo_local.short_description = 'Equipo Local'
+    equipo_visitante.short_description = 'Equipo Visitante'
 
-    
-# @admin.register(Jugador)
-# class JugadorAdmin(admin.ModelAdmin):
-#     model = Jugador
-#     list_display = ["id_jugador", "nombre", "apellido1", "apellido2", "id_equipo", "dorsal", "fecha_nacimiento", "altura", "peso", "telefono"]
-#     search_fields = ["id_jugador", "nombre"]

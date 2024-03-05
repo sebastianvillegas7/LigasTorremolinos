@@ -1,94 +1,46 @@
 {% extends "base.html" %}
-{% block titulo %} Información de Equipo {% endblock %}
+{% block titulo %} Información de Jugador {% endblock %}
 {% block contenido %}
 
-<div class="d-flex align-items-center justify-content-center" style="height: 550px; margin-top: -5px; margin-bottom: -5px;">
-    <div class="card text-white bg-dark" style="width: 90%;" style="border: 2px solid black;">        
-        <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse;">INFORMACIÓN DEL JUGADOR <br>' {{ jugador.nombre }} '</div>
-        <div class="card-body" style="border: 1px solid black; border-collapse: collapse;">
-            <p><strong>ID:</strong> {{ equipo.id_equipo }}</p>
-            <p><strong>Nombre:</strong>{{ equipo.nombre }}</p>
-            <p><strong>ID Deporte:</strong> {{ equipo.id_deporte_id }}</p>
-            <p><strong>Deporte:</strong>{% if equipo.id_deporte_id == 1 %}
-                Fútbol
-            {% elif equipo.id_deporte_id == 2 %}
-                Baloncesto
-            {% elif equipo.id_deporte_id == 3 %}
-                Tenis
-            {% else %}
-                Otros
-            {% endif %}</p>
-            <p><strong>Equipación Principal:</strong> {{ equipo.equipacion_principal }}</p>
-            <p><strong>Equipación Suplente:</strong> {{ equipo.equipacion_suplente }}</p>
-            <p><strong>Contacto:</strong> {{ equipo.contacto }}</p>
-            <p><strong>Teléfono:</strong> {{ equipo.telefono }}</p>
-            <p><strong>Email:</strong> {{ equipo.email }}</p>
-            
-            <div class="text-center">
-                <a class="btn btn-sm btn-info ml-2" href="{% url 'appLigas:editar_equipo' pk=equipo.id_equipo %}" style="width: 100px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="margin-bottom: 3px;">
-                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-                    </svg>   
-                    Editar                         
-                </a>
-                <a class="btn btn-sm btn-danger ml-2" href="{% url 'appLigas:eliminar_equipo' pk=equipo.id_equipo %}" style="width: 100px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" style="margin-bottom: 3px;">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                    </svg>   
-                    Borrar                         
-                </a>
-                <a class="btn btn-sm btn-secondary ml-2" href="#" onclick="history.go(-1);" style="width: 150px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16" style="margin-bottom: 3px;">
-                        <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z"/>
-                      </svg>
-                    Volver
-                </a>
+<div class="d-flex align-items-center justify-content-center" style="height: 500px; margin-top: -5px; margin-bottom: 15px;">
+    <div class="card text-white bg-dark" style="width: 90%; border: 1px solid black;">        
+        <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse; ">INFORMACIÓN DEL JUGADOR <br>' {{ jugador.nombre }} {{ jugador.apellido1 }} {{ jugador.apellido2 }} '</div>
+        <div class="card-body" style="border-collapse: collapse; display: flex; flex-direction: row; justify-content: space-between;">
+            <div style="width: 45%;">
+                <p><strong>ID:</strong> {{ jugador.id_jugador }}</p>
+                <p><strong>Nombre:</strong> {{ jugador.nombre }}</p>
+                <p><strong>Primero apellido:</strong> {{ jugador.apellido1 }}</p>
+                <p><strong>Segundo apellido:</strong> {{ jugador.apellido2 }}</p>             
+                <p><strong>ID Equipo:</strong> {{ jugador.id_equipo.id_equipo }}</p>
+            </div>
+            <div style="width: 45%;">
+                <p><strong>Dorsal:</strong> {{ jugador.dorsal }}</p>
+                <p><strong>Fecha de nacimiento:</strong> {{ jugador.fecha_nacimiento }}</p>
+                <p><strong>Teléfono:</strong> {{ jugador.telefono }}</p>
+                <p><strong>Altura:</strong> {{ jugador.altura }}m</p>
+                <p><strong>Peso:</strong> {{ jugador.peso }}kg</p>
             </div>
         </div>
-    </div>
-</div>
-
-<div class="text-center" style="margin-bottom: 10px;">
-    <h3 class="text-center">Jugadores del Equipo '{{ equipo.nombre }}'</h3>
-    <a class="btn btn-info" href="{% url 'appLigas:crear_jugador' pk=equipo.id_equipo %}">Agregar Jugador al equipo '{{ equipo.nombre }}'</a>
-</div>
-<div class="container bg-dark text-light">    
-    <div class="table-responsive">
-        <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
-            <thead class="table-active">
-                <tr>                    
-                    <th scope="col"><i>Nombre</i></th>
-                    <th scope="col"><i>Apellido 1</i></th>
-                    <th scope="col"><i>Apellido 2</i></th>                    
-                    <th scope="col" style="text-align: center;"><i>Dorsal</i></th>                    
-                    <th scope="col" style="text-align: center;"><i>Acciones</i></th>                    
-                </tr>
-            </thead>
-            <tbody class="table-group-divider" style="font-size: 0.9rem;">
-                {% for jugador in jugadores %}
-                <tr>                    
-                    <td scope="row">{{ jugador.nombre }}</td>
-                    <td scope="row">{{ jugador.apellido1 }}</td>
-                    <td scope="row">{{ jugador.apellido2 }}</td>                    
-                    <td scope="row" style="text-align: center;">{{ jugador.dorsal }}</td>                    
-                    <td scope="row" class="text-center">
-                        <a class="btn btn-sm btn-info me-2" style="margin-right: 8px;" href="{% url 'appLigas:editar_jugador' pk=jugador.id_jugador %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px;">
-                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-                            </svg>
-                            Editar
-                        </a>
-                        <a class="btn btn-sm btn-danger" href="{% url 'appLigas:eliminar_jugador' pk=jugador.id_jugador %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px">
-                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                            </svg> 
-                            Borrar
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="text-center mt-3" style="margin-bottom: 15px;">
+            <a class="btn btn-sm btn-info me-2" style="margin-right: 8px;" href="{% url 'appLigas:editar_jugador' pk=jugador.id_jugador %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px;">
+                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                </svg>
+                Editar
+            </a>
+            <a class="btn btn-sm btn-danger" href="{% url 'appLigas:eliminar_jugador' pk=jugador.id_jugador %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg> 
+                Borrar
+            </a>
+            <a class="btn btn-sm btn-secondary ml-2" href="#" onclick="history.go(-1);" style="width: 150px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                    <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z"/>
+                  </svg>
+                Volver
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}
