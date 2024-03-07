@@ -7,7 +7,7 @@
         <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse;">INFORMACIÓN DEL EQUIPO <br>' {{ equipo.nombre }} '</div>
         <div class="card-body" style="border: 1px solid black; border-collapse: collapse;">
             <p><strong>ID:</strong> {{ equipo.id_equipo }}</p>
-            <p><strong>Nombre:</strong> {{ equipo.nombre }}</p>
+            <p><strong>Equipo:</strong> {{ equipo.nombre }}</p>
             <p><strong>ID Deporte:</strong> {{ equipo.id_deporte_id }}</p>
             <p><strong>Deporte:</strong> {% if equipo.id_deporte_id == 1 %}
                 Fútbol
@@ -22,7 +22,7 @@
             <p><strong>Equipación Suplente:</strong> {{ equipo.equipacion_suplente }}</p>
             <p><strong>Contacto:</strong> {{ equipo.contacto }}</p>
             <p><strong>Teléfono:</strong> {{ equipo.telefono }}</p>
-            <p><strong>Email:</strong> {{ equipo.email }}</p>
+            <p><strong>Correo electrónico:</strong> {{ equipo.email }}</p>
             
             <div class="text-center">
                 <a class="btn btn-sm btn-info ml-2" href="{% url 'appLigas:editar_equipo' pk=equipo.id_equipo %}" style="width: 100px">
