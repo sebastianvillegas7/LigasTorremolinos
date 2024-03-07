@@ -19,7 +19,7 @@ class InstalacionAdmin(admin.ModelAdmin):
 class EquipoAdmin(admin.ModelAdmin):
     model = Equipo
     list_display = ["id_equipo", "nombre", "deporte", "contacto", "telefono", "email"]
-    search_fields = ["nombre", "contacto", "telefono", "email", "id_deporte__nombre"]
+    search_fields = ["nombre", "contacto", "id_deporte__nombre"]
 
     def deporte(self, obj):
         return obj.id_deporte.nombre

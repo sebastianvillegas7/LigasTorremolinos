@@ -24,12 +24,13 @@
 </nav>
 
 
-<div class="container bg-dark text-light">    
+<div class="container bg-dark text-light" style="margin-bottom: 100px;">    
     <div class="table-responsive">
         <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
             <thead class="table-active">
                 <tr>                    
                     <th scope="col"><i>Fecha y Hora</i></th>
+                    <th scope="col"><i>Instalación</i></th>
                     <th scope="col" style="text-align: center;"><i>Deporte</i></th>                    
                     <th scope="col"><i>Equipo Local</i></th>
                     <th scope="col"><i>Equipo Visitante</i></th>
@@ -41,6 +42,7 @@
                 {% for partido in object_list %}
                 <tr onclick="window.location='{% url 'appLigas:info_partido' partido.id_partido %}'" style="cursor: pointer;">                    
                     <td scope="row">{{ partido.fecha_hora | date:"d/m/Y" }}<br>{{ partido.fecha_hora | time:"H:i" }}hs</td>
+                    <td scope="row">{{ partido.id_instalacion.nombre }}</td>                    
                     <td scope="row" style="text-align: center;">{{ partido.id_deporte.nombre }}</td>                    
                     <td scope="row">{{ partido.id_equipo_local.nombre }}</td>
                     <td scope="row">{{ partido.id_equipo_visitante.nombre }}</td>

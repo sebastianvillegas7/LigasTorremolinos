@@ -12,6 +12,15 @@
     <title>{% block titulo %}{% endblock %}</title>
     <!-- Agrega la referencia al archivo CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">   
+    <style>
+        .navbar-brand {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra por defecto */
+        }
+    
+        .navbar-brand:hover {
+            text-shadow: none; /* Elimina la sombra en hover */
+        }
+    </style>
 </head>
 <body class="bg-dark text-light" style="padding-top: 38px;">
 

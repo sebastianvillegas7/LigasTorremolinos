@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block titulo %} Listado Instalaciones {% endblock %}
+{% block titulo %} Listado de Instalaciones {% endblock %}
 
 {% block contenido %}
     <nav>
@@ -29,7 +29,7 @@
                 <thead class="table-active">
                     <tr>
                         <th scope="col" style="width: 3%; text-align: center;"><i>ID</i></th>
-                        <th scope="col"><i>Nombre</i></th>
+                        <th scope="col"><i>Instalación</i></th>
                         <th scope="col"><i>Dirección</i></th>
                         <th scope="col" style="text-align: center;"><i>Iluminación</i></th>
                         <th scope="col" style="text-align: center;"><i>Cubierta</i></th>
@@ -42,8 +42,8 @@
                         <td scope="row" style="text-align: center;">{{ instalacion.id_instalacion }}</td>
                         <td scope="row">{{ instalacion.nombre }}</td>
                         <td scope="row">{{ instalacion.direccion }}</td>
-                        <td scope="row" style="text-align: center;">{% if instalacion.iluminacion %}Si{% else %}No{% endif %}</td>
-                        <td scope="row" style="text-align: center;">{% if instalacion.cubierta %}Si{% else %}No{% endif %}</td>
+                        <td scope="row" style="text-align: center;">{% if instalacion.iluminacion %}Sí{% else %}No{% endif %}</td>
+                        <td scope="row" style="text-align: center;">{% if instalacion.cubierta %}Sí{% else %}No{% endif %}</td>
                         <td scope="row" class="text-center">
                             <a class="btn btn-sm btn-info me-2" style="margin-right: 8px;" href="{% url 'appLigas:editar_instalacion' pk=instalacion.id_instalacion %}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px;">

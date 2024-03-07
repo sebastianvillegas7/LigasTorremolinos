@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block titulo %} Listado Jugadores {% endblock %}
+{% block titulo %} Listado de Jugadores {% endblock %}
 
 {% block contenido %}
     <nav>
@@ -23,14 +23,13 @@
         </div>
     </nav>
 
-    <div class="container bg-dark text-light">    
+    <div class="container bg-dark text-light" style="margin-bottom: 100px;">    
         <div class="table-responsive">
             <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
                 <thead class="table-active">
                     <tr>                        
                         <th scope="col"><i>Nombre</i></th>
-                        <th scope="col"><i>Primer Apellido</i></th>
-                        <th scope="col"><i>Segundo Apellido</i></th>
+                        <th scope="col"><i>Apellidos</i></th>                        
                         <th scope="col" style="text-align: center;"><i>Equipo</i></th>
                         <th scope="col" style="text-align: center;"><i>Teléfono</i></th>                        
                         <th scope="col" style="text-align: center;"><i>Acciones</i></th>
@@ -40,8 +39,7 @@
                     {% for jugador in object_list %}
                     <tr onclick="window.location='{% url 'appLigas:info_jugador' pk=jugador.id_jugador %}'" style="cursor: pointer;">                        
                         <td scope="row">{{ jugador.nombre }}</td>
-                        <td scope="row">{{ jugador.apellido1 }}</td>
-                        <td scope="row">{{ jugador.apellido2 }}</td>
+                        <td scope="row">{{ jugador.apellido1 }} {{ jugador.apellido2 }}</td>
                         <td scope="row" style="text-align: center;">{{ jugador.id_equipo.nombre }}</td>
                         <td scope="row" style="text-align: center;">{{ jugador.telefono }}</td>
                         <td scope="row" class="text-center">

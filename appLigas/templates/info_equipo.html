@@ -7,7 +7,7 @@
         <div class="card-header text-center" style="border: 1px solid black; border-collapse: collapse;">INFORMACIÓN DEL EQUIPO <br>' {{ equipo.nombre }} '</div>
         <div class="card-body" style="border: 1px solid black; border-collapse: collapse;">
             <p><strong>ID:</strong> {{ equipo.id_equipo }}</p>
-            <p><strong>Nombre:</strong> {{ equipo.nombre }}</p>
+            <p><strong>Equipo:</strong> {{ equipo.nombre }}</p>
             <p><strong>ID Deporte:</strong> {{ equipo.id_deporte_id }}</p>
             <p><strong>Deporte:</strong> {% if equipo.id_deporte_id == 1 %}
                 Fútbol
@@ -22,7 +22,7 @@
             <p><strong>Equipación Suplente:</strong> {{ equipo.equipacion_suplente }}</p>
             <p><strong>Contacto:</strong> {{ equipo.contacto }}</p>
             <p><strong>Teléfono:</strong> {{ equipo.telefono }}</p>
-            <p><strong>Email:</strong> {{ equipo.email }}</p>
+            <p><strong>Correo electrónico:</strong> {{ equipo.email }}</p>
             
             <div class="text-center">
                 <a class="btn btn-sm btn-info ml-2" href="{% url 'appLigas:editar_equipo' pk=equipo.id_equipo %}" style="width: 100px">
@@ -52,25 +52,25 @@
     <h3 class="text-center">Jugadores del Equipo '{{ equipo.nombre }}'</h3>
     <a class="btn btn-info" href="{% url 'appLigas:crear_jugador' pk=equipo.id_equipo %}">Agregar Jugador al equipo '{{ equipo.nombre }}'</a>
 </div>
-<div class="container bg-dark text-light">    
+<div class="container bg-dark text-light" style="margin-bottom: 100px;">    
     <div class="table-responsive">
         <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
             <thead class="table-active">
                 <tr>                    
+                    <th scope="col" style="text-align: center; width: 5%"><i>Dorsal</i></th>                    
                     <th scope="col"><i>Nombre</i></th>
-                    <th scope="col"><i>Apellido 1</i></th>
-                    <th scope="col"><i>Apellido 2</i></th>                    
-                    <th scope="col" style="text-align: center;"><i>Dorsal</i></th>                    
+                    <th scope="col"><i>Primer Apellido</i></th>
+                    <th scope="col"><i>Segundo Apellido</i></th>                    
                     <th scope="col" style="text-align: center;"><i>Acciones</i></th>                    
                 </tr>
             </thead>
             <tbody class="table-group-divider" style="font-size: 0.9rem;">
                 {% for jugador in jugadores %}
                 <tr>                    
+                    <td scope="row" style="text-align: center; width: 5%">{{ jugador.dorsal }}</td>                    
                     <td scope="row">{{ jugador.nombre }}</td>
                     <td scope="row">{{ jugador.apellido1 }}</td>
                     <td scope="row">{{ jugador.apellido2 }}</td>                    
-                    <td scope="row" style="text-align: center;">{{ jugador.dorsal }}</td>                    
                     <td scope="row" class="text-center">
                         <a class="btn btn-sm btn-info me-2" style="margin-right: 8px;" href="{% url 'appLigas:editar_jugador' pk=jugador.id_jugador %}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px;">

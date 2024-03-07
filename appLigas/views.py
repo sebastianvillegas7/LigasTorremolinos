@@ -3,6 +3,7 @@ from django.views import generic
 from django.utils import timezone
 from . import models
 from .forms import DeporteForm, EquipoForm, InstalacionForm, JugadorForm, PartidoForm
+from django.contrib import messages
 
 # TODO: HOME
 class ListadoView(generic.ListView): 
@@ -36,6 +37,16 @@ class CrearDeporteView(generic.CreateView):
     form_class = DeporteForm  
     template_name = "crear_deporte.html"  
     success_url = "/listado_deportes"  
+    
+    def post(self, request, *args, **kwargs):
+        try:
+            return super().post(request, *args, **kwargs)
+        except Exception as e:
+            messages.add_message(request, messages.ERROR, f"Ya existe un deporte con el mismo nombre,")
+            messages.add_message(request, messages.ERROR, f"introduzca un nombre distinto.")
+            return render(request,
+                template_name=self.template_name,
+                context=self.get_context_data())
 
 class EliminarDeporteView(generic.DeleteView):
     model = models.Deporte
