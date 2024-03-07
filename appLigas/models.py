@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator
 # Modelo Deporte
 class Deporte(models.Model):
     id_deporte = models.IntegerField(primary_key = True)
-    nombre = models.CharField(max_length = 50)        
+    nombre = models.CharField(max_length = 20)        
         
     class Meta:        
         verbose_name_plural = "Deportes"

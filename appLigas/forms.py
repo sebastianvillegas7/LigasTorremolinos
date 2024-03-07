@@ -27,7 +27,7 @@ class EquipoForm(forms.ModelForm):
         exclude = ['id_equipo']
         widgets = {
             "nombre": forms.TextInput(attrs={"class":"form-control"}),
-            "id_deporte": forms.Select(attrs={"class":"form-select"}, ),
+            "id_deporte": forms.Select(attrs={"class":"form-select"}),
             "equipacion_principal": forms.TextInput(attrs={"class":"form-control"}),
             "equipacion_suplente": forms.TextInput(attrs={"class":"form-control"}),
             "contacto": forms.TextInput(attrs={"class":"form-control"}),

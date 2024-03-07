@@ -52,25 +52,25 @@
     <h3 class="text-center">Jugadores del Equipo '{{ equipo.nombre }}'</h3>
     <a class="btn btn-info" href="{% url 'appLigas:crear_jugador' pk=equipo.id_equipo %}">Agregar Jugador al equipo '{{ equipo.nombre }}'</a>
 </div>
-<div class="container bg-dark text-light">    
+<div class="container bg-dark text-light" style="margin-bottom: 100px;">    
     <div class="table-responsive">
         <table class="table table-sm table-responsive-sm table-dark table-hover table-striped table-bordered">
             <thead class="table-active">
                 <tr>                    
+                    <th scope="col" style="text-align: center; width: 5%"><i>Dorsal</i></th>                    
                     <th scope="col"><i>Nombre</i></th>
-                    <th scope="col"><i>Apellido 1</i></th>
-                    <th scope="col"><i>Apellido 2</i></th>                    
-                    <th scope="col" style="text-align: center;"><i>Dorsal</i></th>                    
+                    <th scope="col"><i>Primer Apellido</i></th>
+                    <th scope="col"><i>Segundo Apellido</i></th>                    
                     <th scope="col" style="text-align: center;"><i>Acciones</i></th>                    
                 </tr>
             </thead>
             <tbody class="table-group-divider" style="font-size: 0.9rem;">
                 {% for jugador in jugadores %}
                 <tr>                    
+                    <td scope="row" style="text-align: center; width: 5%">{{ jugador.dorsal }}</td>                    
                     <td scope="row">{{ jugador.nombre }}</td>
                     <td scope="row">{{ jugador.apellido1 }}</td>
                     <td scope="row">{{ jugador.apellido2 }}</td>                    
-                    <td scope="row" style="text-align: center;">{{ jugador.dorsal }}</td>                    
                     <td scope="row" class="text-center">
                         <a class="btn btn-sm btn-info me-2" style="margin-right: 8px;" href="{% url 'appLigas:editar_jugador' pk=jugador.id_jugador %}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="margin-bottom: 3px; margin-right: 3px;">

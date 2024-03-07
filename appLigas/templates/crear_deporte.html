@@ -5,6 +5,11 @@
 <div class="card bg-dark text-light mx-auto w-50" style="margin-bottom: 20px;">
     <div class="card-body p-4" >
         <h1 style="font-family: 'Rubik', sans-serif; font-optical-sizing: auto; font-weight: 300; font-style: normal; margin-bottom: 1px;">Crear Deporte</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
         <form method="post" action="{% url 'appLigas:crear_deporte' %}" class="mt-2" style="margin-bottom: 20px; margin-top: 10px;">
             {% csrf_token %}
             {{ form.as_p }}
@@ -15,7 +20,7 @@
                 </svg>
                 Guardar
             </button>
-            <a class="btn btn-secondary btn-md ml-2" href="#" onclick="history.go(-1);">
+            <a class="btn btn-secondary btn-md ml-2" href="{% url 'appLigas:listado_deportes' %}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16" style="margin-bottom: 3px;">
                     <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z"/>
                 </svg>
