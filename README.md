@@ -44,8 +44,11 @@ Incluye una aplicación personalizada proporciona funcionalidades específicas p
 
 ### 2. Crear un entorno virtual
 > Ejecuta los siguientes comandos:
+
 python -m venv venv
+
 venv\Scripts\activate
+
 pip install django mysqlclient
 
 ### 3. Configurar la base de datos
@@ -54,14 +57,19 @@ pip install django mysqlclient
 
 ### 4. Migrar la base de datos
 > Migrar la base de datos
+
 > Ejecuta los siguientes comandos:
+
 python manage.py makemigrations
+
 python manage.py migrate
 
 ### 5. Ejecutar el servidor de desarrollo
 > Ejecuta el siguiente comando:
+
 python manage.py runserver
 
 > [!IMPORTANT]
 > Luego, abre tu navegador y ve a:
+
 http://127.0.0.1:8000
