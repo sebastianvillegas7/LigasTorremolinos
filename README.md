@@ -3,7 +3,7 @@
 > Este proyecto fue generado con [Python 3.12.5](https://www.python.org/) y [Django](https://www.djangoproject.com/).
 
 Ligas Torremolinos es un proyecto desarrollado para el Ayuntamiento de Torremolinos, para gestionar información relacionada con sus ligas deportivas.
-Incluye una aplicación personalizada proporciona funcionalidades específicas para la gestión de datos de las ligas, equipos, jugadores, calendario de partidos, etc.
+Incluye una aplicación personalizada que proporciona funcionalidades específicas para la gestión de datos de las ligas, equipos, jugadores, calendario de partidos, etc, una base de datos, y un servicio API para conexión con el back-end.
 
 ## Tecnologías Utilizadas
 > Python: Lenguaje de programación principal utilizado para el desarrollo.
