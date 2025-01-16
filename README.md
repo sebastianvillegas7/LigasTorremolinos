@@ -5,9 +5,6 @@
 Ligas Torremolinos es un proyecto desarrollado para el Ayuntamiento de Torremolinos, para gestionar información relacionada con sus ligas deportivas.
 Incluye una aplicación personalizada proporciona funcionalidades específicas para la gestión de datos de las ligas, equipos, jugadores, calendario de partidos, etc.
 
-## Diseño de la aplicación
-<img src="src/assets/img/mood-pdf/diseno-app.png" alt="MoodShare App" width="400px">
-
 ## Tecnologías Utilizadas
 > Python: Lenguaje de programación principal utilizado para el desarrollo.
 > Django: Framework para el backend y la gestión de la lógica del servidor.
