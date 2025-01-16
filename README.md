@@ -7,8 +7,11 @@ Incluye una aplicación personalizada proporciona funcionalidades específicas p
 
 ## Tecnologías Utilizadas
 > Python: Lenguaje de programación principal utilizado para el desarrollo.
+
 > Django: Framework para el backend y la gestión de la lógica del servidor.
+
 > MySQL: Base de datos relacional.
+
 > Bootstrap: HTML + CSS para diseño y estilos responsivos.
 
 ## Capturas
