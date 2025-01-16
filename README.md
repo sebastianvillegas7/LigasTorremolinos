@@ -6,13 +6,13 @@ Ligas Torremolinos es un proyecto desarrollado para el Ayuntamiento de Torremoli
 Incluye una aplicación personalizada proporciona funcionalidades específicas para la gestión de datos de las ligas, equipos, jugadores, calendario de partidos, etc.
 
 ## Tecnologías Utilizadas
->> Python: Lenguaje de programación principal utilizado para el desarrollo.
+> Python: Lenguaje de programación principal utilizado para el desarrollo.
 
->> Django: Framework para el backend y la gestión de la lógica del servidor.
+> Django: Framework para el backend y la gestión de la lógica del servidor.
 
->> MySQL: Base de datos relacional.
+> MySQL: Base de datos relacional.
 
->> Bootstrap: HTML + CSS para diseño y estilos responsivos.
+> Bootstrap: HTML + CSS para diseño y estilos responsivos.
 
 ## Capturas
 <img src="screenshots/home.png" alt="Ligas Torremolinos" width="800px">
@@ -40,7 +40,7 @@ Incluye una aplicación personalizada proporciona funcionalidades específicas p
 >[!TIP]
 > Clona este proyecto en tu máquina local utilizando Git:
 
-(git clone https://github.com/sebastianvillegas7/LigasTorremolinos.git)
+git clone https://github.com/sebastianvillegas7/LigasTorremolinos.git
 
 
 
