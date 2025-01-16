@@ -6,13 +6,13 @@ Ligas Torremolinos es un proyecto desarrollado para el Ayuntamiento de Torremoli
 Incluye una aplicación personalizada proporciona funcionalidades específicas para la gestión de datos de las ligas, equipos, jugadores, calendario de partidos, etc.
 
 ## Tecnologías Utilizadas
-> Python: Lenguaje de programación principal utilizado para el desarrollo.
+>> Python: Lenguaje de programación principal utilizado para el desarrollo.
 
-> Django: Framework para el backend y la gestión de la lógica del servidor.
+>> Django: Framework para el backend y la gestión de la lógica del servidor.
 
-> MySQL: Base de datos relacional.
+>> MySQL: Base de datos relacional.
 
-> Bootstrap: HTML + CSS para diseño y estilos responsivos.
+>> Bootstrap: HTML + CSS para diseño y estilos responsivos.
 
 ## Capturas
 <img src="screenshots/home.png" alt="Ligas Torremolinos" width="800px">
@@ -42,6 +42,8 @@ Incluye una aplicación personalizada proporciona funcionalidades específicas p
 
 (git clone https://github.com/sebastianvillegas7/LigasTorremolinos.git)
 
+
+
 ### 2. Crear un entorno virtual
 > Ejecuta los siguientes comandos:
 
@@ -51,23 +53,29 @@ venv\Scripts\activate
 
 pip install django mysqlclient
 
+
+
 ### 3. Configurar la base de datos
 >[!IMPORTANT]
 > El proyecto utiliza MySQL, configurado en settings.py con credenciales por defecto. Modificar en caso de ser necesario.
 
-### 4. Migrar la base de datos
-> Migrar la base de datos
 
+
+### 4. Migrar la base de datos
 > Ejecuta los siguientes comandos:
 
 python manage.py makemigrations
 
 python manage.py migrate
 
+
+
 ### 5. Ejecutar el servidor de desarrollo
 > Ejecuta el siguiente comando:
 
 python manage.py runserver
+
+
 
 > [!IMPORTANT]
 > Luego, abre tu navegador y ve a:
