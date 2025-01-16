@@ -1,83 +1,122 @@
-# Ligas Torremolinos
+# 🏆 Ligas Torremolinos
+
 > [!NOTE]
 > Este proyecto fue generado con [Python 3.12.5](https://www.python.org/) y [Django](https://www.djangoproject.com/).
 
-Ligas Torremolinos es un proyecto desarrollado para el Ayuntamiento de Torremolinos, para gestionar información relacionada con sus ligas deportivas.
-Incluye una aplicación personalizada que proporciona funcionalidades específicas para la gestión de datos de las ligas, equipos, jugadores, calendario de partidos, etc, una base de datos, y un servicio API para conexión con el back-end.
+Ligas Torremolinos es un proyecto desarrollado para el **Ayuntamiento de Torremolinos** con el propósito de gestionar información relacionada con sus ligas deportivas.  
 
-## Tecnologías Utilizadas
-> Python: Lenguaje de programación principal utilizado para el desarrollo.
+Incluye funcionalidades como:
+- Gestión de datos de **ligas, equipos, jugadores y calendario de partidos**.
+- Base de datos relacional para almacenamiento eficiente.
+- **Servicio API** para la conexión con el backend.
 
-> Django: Framework para el backend y la gestión de la lógica del servidor.
+---
 
-> MySQL: Base de datos relacional.
+## 🚀 Tecnologías Utilizadas
 
-> Bootstrap: HTML + CSS para diseño y estilos responsivos.
+> **Python**: Lenguaje principal utilizado para el desarrollo.
 
-## Capturas
-<img src="screenshots/home.png" alt="Ligas Torremolinos" width="800px">
+> **Django**: Framework para el backend y la gestión de la lógica del servidor.
 
-<img src="screenshots/equipos.png" alt="Ligas Torremolinos" width="800px">
+> **MySQL**: Base de datos relacional utilizada para almacenar la información.
 
-<img src="screenshots/jugadores.png" alt="Ligas Torremolinos" width="800px">
+> **Bootstrap**: Framework CSS para diseño responsivo.
 
-<img src="screenshots/partidos.png" alt="Ligas Torremolinos" width="800px">
+---
 
-<img src="screenshots/editar-jugador.png" alt="Ligas Torremolinos" width="800px">
+## 📸 Capturas de Pantalla
 
-<img src="screenshots/editar-partido.png" alt="Ligas Torremolinos" width="800px">
+> [!TIP]
+> Algunas capturas del sistema en acción:
 
-## Instalación, Configuración y Ejecución
->[!IMPORTANT]
+### Inicio
+<img src="screenshots/home.png" alt="Inicio" width="800px">
+
+### Equipos
+<img src="screenshots/equipos.png" alt="Equipos" width="800px">
+
+### Jugadores
+<img src="screenshots/jugadores.png" alt="Jugadores" width="800px">
+
+### Partidos
+<img src="screenshots/partidos.png" alt="Partidos" width="800px">
+
+### Editar Jugador
+<img src="screenshots/editar-jugador.png" alt="Editar Jugador" width="800px">
+
+### Editar Partido
+<img src="screenshots/editar-partido.png" alt="Editar Partido" width="800px">
+
+---
+
+## 🛠️ Instalación, Configuración y Ejecución
+
+> [!IMPORTANT]
 > Asegúrate de tener instalados los siguientes programas en tu sistema:
 
-- Python 3.12+
-- Pip (gestor de paquetes de Python)
-- MySQL (opcional, si se configura en settings.py)
-- Entorno virtual configurado (recomendado)
+- **Python 3.12+**
+- **Pip** (gestor de paquetes de Python)
+- **MySQL** (opcional, si se configura en `settings.py`)
+- **Entorno virtual configurado** (recomendado)
+
+---
 
 ### 1. Clonar el repositorio
->[!TIP]
+
+> [!TIP]
 > Clona este proyecto en tu máquina local utilizando Git:
 
+```
+bash
 git clone https://github.com/sebastianvillegas7/LigasTorremolinos.git
-
+```
 
 
 ### 2. Crear un entorno virtual
 > Ejecuta los siguientes comandos:
 
+```
+bash
 python -m venv venv
 
 venv\Scripts\activate
 
 pip install django mysqlclient
+```
 
 
 
 ### 3. Configurar la base de datos
 >[!IMPORTANT]
-> El proyecto utiliza MySQL, configurado en settings.py con credenciales por defecto. Modificar en caso de ser necesario.
+> El proyecto utiliza MySQL, configurado en **settings.py** con credenciales por defecto. Modificar en caso de ser necesario.
 
 
 
 ### 4. Migrar la base de datos
 > Ejecuta los siguientes comandos:
 
+```
+bash
 python manage.py makemigrations
 
 python manage.py migrate
+```
+
 
 
 
 ### 5. Ejecutar el servidor de desarrollo
 > Ejecuta el siguiente comando:
 
+```
+bash
 python manage.py runserver
+```
+
 
 
 
 > [!IMPORTANT]
 > Luego, abre tu navegador y ve a:
 
-http://127.0.0.1:8000
+**http://127.0.0.1:8000**
