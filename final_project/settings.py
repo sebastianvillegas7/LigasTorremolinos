@@ -80,7 +80,7 @@ DATABASES = {
                  'ENGINE': 'django.db.backends.mysql', 
                  'NAME': 'ligas_torremolinos', 
                  'USER': 'root', 
-                 'PASSWORD': '123Asd123!', 
+                 'PASSWORD': 'root', 
                  'HOST': 'localhost', 
                  'PORT': '3306' } 
              }
