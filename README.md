@@ -12,17 +12,17 @@ Incluye una aplicación personalizada proporciona funcionalidades específicas p
 > Bootstrap: HTML + CSS para diseño y estilos responsivos.
 
 ## Capturas
-<img src="src/assets/img/portfolio/ligas/home.png" alt="Ligas Torremolinos" width="500px">
+<img src="screenshots/home.png" alt="Ligas Torremolinos" width="500px">
 
-<img src="src/assets/img/portfolio/ligas/equipos.png" alt="Ligas Torremolinos" width="500px">
+<img src="screenshots/equipos.png" alt="Ligas Torremolinos" width="500px">
 
-<img src="src/assets/img/portfolio/ligas/jugadores.png" alt="Ligas Torremolinos" width="500px">
+<img src="screenshots/jugadores.png" alt="Ligas Torremolinos" width="500px">
 
-<img src="src/assets/img/portfolio/ligas/partidos.png" alt="Ligas Torremolinos" width="500px">
+<img src="screenshots/partidos.png" alt="Ligas Torremolinos" width="500px">
 
-<img src="src/assets/img/portfolio/ligas/editar-jugador.png" alt="Ligas Torremolinos" width="500px">
+<img src="screenshots/editar-jugador.png" alt="Ligas Torremolinos" width="500px">
 
-<img src="src/assets/img/portfolio/ligas/editar-partido.png" alt="Ligas Torremolinos" width="500px">
+<img src="screenshots/editar-partido.png" alt="Ligas Torremolinos" width="500px">
 
 ## Instalación, Configuración y Ejecución
 >[!IMPORTANT]
