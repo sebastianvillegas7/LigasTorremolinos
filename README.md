@@ -3,7 +3,7 @@
 > [!NOTE]
 > Este proyecto fue generado con [Python 3.12.5](https://www.python.org/) y [Django](https://www.djangoproject.com/).
 
-Ligas Torremolinos es un proyecto desarrollado para el **Ayuntamiento de Torremolinos** con el propósito de gestionar información relacionada con sus ligas deportivas.  
+`Ligas Torremolinos` es un proyecto desarrollado para el **Ayuntamiento de Torremolinos** con el propósito de gestionar información relacionada con sus ligas deportivas.  
 
 Incluye funcionalidades como:
 - Gestión de datos de **ligas, equipos, jugadores y calendario de partidos**.
@@ -54,6 +54,7 @@ Incluye funcionalidades como:
 - **Pip** (gestor de paquetes de Python)
 - **MySQL** (opcional, si se configura en `settings.py`)
 - **Entorno virtual configurado** (recomendado)
+- **Git** (opcional, para clonar el repositorio)
 
 --
 
@@ -111,4 +112,6 @@ python manage.py runserver
 > [!IMPORTANT]
 > Luego, abre tu navegador y ve a:
 
-**http://127.0.0.1:8000**
+```
+http://127.0.0.1:8000
+```
