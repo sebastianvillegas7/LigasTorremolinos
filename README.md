@@ -14,21 +14,17 @@ Incluye funcionalidades como:
 
 ## 🚀 Tecnologías Utilizadas
 
-`Python`: Lenguaje principal utilizado para el desarrollo.
+`Python` Lenguaje principal utilizado para el desarrollo.
 
-`Django`: Framework para el backend y la gestión de la lógica del servidor.
+`Django` Framework para el backend y la gestión de la lógica del servidor.
 
-`MySQL`: Base de datos relacional utilizada para almacenar la información.
+`MySQL` Base de datos relacional utilizada para almacenar la información.
 
-`Bootstrap`: Framework CSS para diseño responsivo.
+`Bootstrap` Framework CSS para diseño responsivo.
 
 ---
 
 ## 📸 Capturas de Pantalla
-
-> [!TIP]
-> Algunas capturas del sistema en acción:
-
 ### Inicio
 <img src="screenshots/home.png" alt="Inicio" width="800px">
 
