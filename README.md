@@ -14,13 +14,13 @@ Incluye funcionalidades como:
 
 ## 🚀 Tecnologías Utilizadas
 
-> **Python**: Lenguaje principal utilizado para el desarrollo.
+`**Python**`: Lenguaje principal utilizado para el desarrollo.
 
-> **Django**: Framework para el backend y la gestión de la lógica del servidor.
+`**Django**`: Framework para el backend y la gestión de la lógica del servidor.
 
-> **MySQL**: Base de datos relacional utilizada para almacenar la información.
+`**MySQL**`: Base de datos relacional utilizada para almacenar la información.
 
-> **Bootstrap**: Framework CSS para diseño responsivo.
+`**Bootstrap**`: Framework CSS para diseño responsivo.
 
 ---
 
@@ -59,7 +59,7 @@ Incluye funcionalidades como:
 - **MySQL** (opcional, si se configura en `settings.py`)
 - **Entorno virtual configurado** (recomendado)
 
----
+--
 
 ### 1. Clonar el repositorio
 
@@ -67,7 +67,6 @@ Incluye funcionalidades como:
 > Clona este proyecto en tu máquina local utilizando Git:
 
 ```
-bash
 git clone https://github.com/sebastianvillegas7/LigasTorremolinos.git
 ```
 
@@ -76,7 +75,6 @@ git clone https://github.com/sebastianvillegas7/LigasTorremolinos.git
 > Ejecuta los siguientes comandos:
 
 ```
-bash
 python -m venv venv
 
 venv\Scripts\activate
@@ -88,7 +86,7 @@ pip install django mysqlclient
 
 ### 3. Configurar la base de datos
 >[!IMPORTANT]
-> El proyecto utiliza MySQL, configurado en **settings.py** con credenciales por defecto. Modificar en caso de ser necesario.
+> El proyecto utiliza MySQL, configurado en `settings.py` con credenciales por defecto. Modificar en caso de ser necesario.
 
 
 
@@ -96,7 +94,6 @@ pip install django mysqlclient
 > Ejecuta los siguientes comandos:
 
 ```
-bash
 python manage.py makemigrations
 
 python manage.py migrate
@@ -109,7 +106,6 @@ python manage.py migrate
 > Ejecuta el siguiente comando:
 
 ```
-bash
 python manage.py runserver
 ```
 
